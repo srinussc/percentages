@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentage — Complete Concept Notes | SSC CGL Quant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Literata:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F6F1;
+    --rule:#CFE0EC;
+    --margin:#B5453F;
+    --ink:#202A44;
+    --ink-soft:#535F7A;
+    --pen:#9C311E;
+    --chalk:#2C6B4C;
+    --hl:#FBDD7E;
+    --hl-edge:#E3B53C;
+    --pyq:#1F3A66;
+    --pyq-bg:#E6ECF6;
+    --found:#2C6B4C;
+    --found-bg:#E3EFE6;
+    --card:#FFFEFC;
+    --line:#E4DFCF;
+    --shadow:0 2px 14px rgba(32,42,68,0.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 33px,
+      var(--rule) 33px, var(--rule) 34px
+    );
+    color:var(--ink);
+    font-family:'Literata', serif;
+    font-size:16px;
+    line-height:1.7;
+  }
+  .page{
+    max-width:880px;
+    margin:0 auto;
+    position:relative;
+    padding:40px 36px 80px 76px;
+  }
+  .margin-rule{
+    position:absolute;
+    top:0; bottom:0; left:48px;
+    width:2px;
+    background:var(--margin);
+    opacity:0.55;
+  }
+  .margin-rule::before{
+    content:"";
+    position:absolute; top:0; bottom:0; left:-6px;
+    width:1px;
+    background:var(--margin);
+    opacity:0.25;
+  }
+
+  /* ---------- Header ---------- */
+  .cover{margin-bottom:30px;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    color:var(--pen);
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  h1.title{
+    font-family:'Kalam', cursive;
+    font-size:2.5rem;
+    color:var(--ink);
+    margin:8px 0 4px;
+    line-height:1.15;
+  }
+  .subtitle{
+    color:var(--ink-soft);
+    font-size:1.05rem;
+    margin-bottom:6px;
+  }
+  .series-note{
+    display:inline-block;
+    background:var(--hl);
+    color:#5A3D0A;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    font-weight:600;
+    padding:4px 10px;
+    border-radius:3px;
+    transform:rotate(-1deg);
+    margin-top:6px;
+  }
+
+  /* ---------- TOC ---------- */
+  .toc{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--pen);
+    border-radius:6px;
+    padding:18px 22px;
+    margin-bottom:38px;
+    box-shadow:var(--shadow);
+  }
+  .toc h2{
+    font-family:'Kalam', cursive;
+    font-size:1.2rem;
+    margin:0 0 10px;
+    color:var(--pen);
+  }
+  .toc ol{margin:0; padding-left:20px; columns:2; column-gap:28px;}
+  .toc li{margin-bottom:6px; break-inside:avoid;}
+  .toc a{color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--ink-soft);}
+  .toc a:hover{color:var(--pen);}
+
+  /* ---------- Sections ---------- */
+  section{margin-bottom:52px;}
+  h2.sec{
+    font-family:'Kalam', cursive;
+    font-size:1.7rem;
+    color:var(--pen);
+    border-bottom:2px dashed var(--hl-edge);
+    padding-bottom:6px;
+    margin-bottom:18px;
+  }
+  h3.sub{
+    font-family:'Kalam', cursive;
+    font-size:1.25rem;
+    color:var(--ink);
+    margin:24px 0 10px;
+  }
+  p{margin:0 0 14px;}
+  .lede{font-size:1.08rem;}
+  strong{color:var(--ink);}
+  .calc{
+    font-family:'JetBrains Mono', monospace;
+    background:#FFFFFF;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:1px 6px;
+    font-size:0.92em;
+  }
+
+  /* ---------- Choc grid ---------- */
+  .choc-wrap{text-align:center; margin:24px 0;}
+  .choc-grid{
+    display:grid;
+    grid-template-columns:repeat(10,1fr);
+    gap:3px;
+    max-width:300px;
+    margin:0 auto 10px;
+  }
+  .choc-grid i{
+    display:block;
+    aspect-ratio:1;
+    background:#EAE3D2;
+    border-radius:3px;
+    font-style:normal;
+  }
+  .choc-grid i.f{
+    background:var(--hl-edge);
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,0.06);
+  }
+  .choc-caption{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Bars ---------- */
+  .bar-block{margin:22px 0;}
+  .bar-label{font-family:'JetBrains Mono', monospace; font-size:0.85rem; color:var(--ink-soft); margin-bottom:4px;}
+  .bar-track{height:26px; background:#EAE3D2; border-radius:4px; overflow:hidden;}
+  .bar-fill{height:100%; display:flex; align-items:center; padding-left:8px; color:#fff; font-family:'JetBrains Mono',monospace; font-size:0.78rem; font-weight:600;}
+  .bar-fill.before{background:var(--ink-soft);}
+  .bar-fill.after{background:var(--chalk);}
+
+  /* ---------- Tables ---------- */
+  table{width:100%; border-collapse:collapse; margin:14px 0 22px; background:var(--card); box-shadow:var(--shadow); border-radius:6px; overflow:hidden;}
+  th,td{padding:9px 12px; text-align:left; border-bottom:1px solid var(--line); font-size:0.95rem;}
+  th{background:#EFEAD9; font-family:'JetBrains Mono', monospace; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft);}
+  td.num{font-family:'JetBrains Mono', monospace;}
+  tr:last-child td{border-bottom:none;}
+
+  /* ---------- Formula box ---------- */
+  .formula-box{
+    background:var(--hl);
+    border:1px dashed var(--hl-edge);
+    border-radius:6px;
+    padding:16px 20px;
+    margin:16px 0;
+    transform:rotate(-0.3deg);
+    box-shadow:var(--shadow);
+  }
+  .formula-box .label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:#7A5A12;
+    margin-bottom:6px;
+  }
+  .formula-box .f{
+    font-family:'JetBrains Mono', monospace;
+    font-size:1.05rem;
+    font-weight:700;
+    color:#4A3408;
+    margin:4px 0;
+  }
+  .formula-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media (max-width:600px){.formula-grid{grid-template-columns:1fr;} .toc ol{columns:1;}}
+
+  /* ---------- Worked examples ---------- */
+  .example{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--chalk);
+    border-radius:6px;
+    padding:18px 22px;
+    margin:18px 0;
+    box-shadow:var(--shadow);
+  }
+  .example h4{
+    font-family:'Kalam', cursive;
+    font-size:1.1rem;
+    margin:0 0 10px;
+    color:var(--chalk);
+  }
+  .example .step{margin:6px 0; font-size:0.97rem;}
+  .example .ans{
+    margin-top:10px;
+    font-weight:700;
+    color:var(--chalk);
+    font-family:'JetBrains Mono', monospace;
+  }
+
+  /* ---------- Mistakes box ---------- */
+  .mistake{
+    background:#FBEAE6;
+    border-left:4px solid var(--pen);
+    border-radius:6px;
+    padding:14px 20px;
+    margin:14px 0;
+  }
+  .mistake .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--pen);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+
+  /* ---------- Practice bank ---------- */
+  .legend{
+    display:flex; gap:16px; flex-wrap:wrap;
+    background:var(--card); border:1px solid var(--line); border-radius:6px;
+    padding:14px 18px; margin-bottom:24px; font-size:0.92rem; box-shadow:var(--shadow);
+  }
+  .legend span.dot{display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; vertical-align:middle;}
+  .badge{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+    padding:3px 9px;
+    border-radius:3px;
+    text-transform:uppercase;
+  }
+  .badge.pyq{background:var(--pyq-bg); color:var(--pyq);}
+  .badge.found{background:var(--found-bg); color:var(--found);}
+
+  .q-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:18px 22px;
+    margin-bottom:16px;
+    box-shadow:var(--shadow);
+  }
+  .q-card.pyq{border-left:4px solid var(--pyq);}
+  .q-card.found{border-left:4px solid var(--found);}
+  .q-head{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:8px;}
+  .q-num{font-family:'JetBrains Mono', monospace; font-weight:700; color:var(--ink-soft); font-size:0.95rem;}
+  .q-source{font-family:'JetBrains Mono', monospace; font-size:0.72rem; color:var(--ink-soft); margin-top:3px;}
+  .q-text{font-size:1.02rem; margin:6px 0 10px;}
+  .q-options{font-family:'JetBrains Mono', monospace; font-size:0.88rem; color:var(--ink-soft); margin-bottom:10px; line-height:1.9;}
+  .q-options .correct{color:var(--chalk); font-weight:700;}
+  .q-solution{background:#FAF9F4; border-left:3px solid var(--rule); padding:10px 14px; border-radius:4px; font-size:0.94rem;}
+  .q-solution .lbl{font-family:'JetBrains Mono', monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:6px;}
+  .q-ans{margin-top:8px; font-weight:700; color:var(--chalk); font-family:'JetBrains Mono', monospace; font-size:0.95rem;}
+
+  .group-title{
+    font-family:'Kalam', cursive;
+    font-size:1.4rem;
+    color:var(--ink);
+    margin:36px 0 16px;
+    display:flex; align-items:center; gap:10px;
+  }
+
+  /* ---------- Summary ---------- */
+  .summary-box{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--pen);
+    border-radius:6px;
+    padding:20px 24px;
+    box-shadow:var(--shadow);
+  }
+  .summary-box ul{margin:0; padding-left:20px;}
+  .summary-box li{margin-bottom:8px; font-family:'JetBrains Mono', monospace; font-size:0.92rem;}
+
+  footer{
+    margin-top:50px;
+    padding-top:24px;
+    border-top:2px dashed var(--hl-edge);
+    color:var(--ink-soft);
+    font-size:0.92rem;
+  }
+  footer h3{font-family:'Kalam', cursive; color:var(--pen); font-size:1.2rem; margin-bottom:8px;}
+  footer ol{padding-left:20px;}
+  footer li{margin-bottom:4px;}
+
+  @media print{
+    .margin-rule, .toc{display:none;}
+    body{background-image:none;}
+    .q-card, .example, .formula-box, .summary-box{box-shadow:none;}
+  }
+
+  @media (max-width:600px){
+    .page{padding:30px 18px 60px 50px;}
+    .margin-rule{left:28px;}
+    h1.title{font-size:1.9rem;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="margin-rule"></div>
+
+  <header class="cover">
+    <div class="eyebrow">SSC CGL · Quantitative Aptitude · Notebook</div>
+    <h1 class="title">Percentage — Complete Concept Notes</h1>
+    <p class="subtitle">From "what even is a percentage" to exam-ready, with 34 worked questions.</p>
+    <span class="series-note">Subtopic 1 of 7 — Percentage Basics</span>
+  </header>
+
+  <nav class="toc">
+    <h2>On this page</h2>
+    <ol>
+      <li><a href="#what-is">1. What is a percentage, really?</a></li>
+      <li><a href="#visualise">2. Seeing it: the 100-box picture</a></li>
+      <li><a href="#convert">3. Fraction ↔ Decimal ↔ Percentage</a></li>
+      <li><a href="#shortcuts">4. The fraction shortcut table</a></li>
+      <li><a href="#formulas">5. Core formulas (highlight these)</a></li>
+      <li><a href="#examples">6. Worked examples, step by step</a></li>
+      <li><a href="#mistakes">7. Mistakes that cost marks</a></li>
+      <li><a href="#practice">8. Practice Bank — 34 questions</a></li>
+      <li><a href="#summary">9. One-page revision summary</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- 1. WHAT IS -->
+    <section id="what-is">
+      <h2 class="sec">1. What is a percentage, really?</h2>
+      <p class="lede">Forget the exam for a second. Imagine you have a chocolate bar broken into exactly <strong>100 tiny pieces</strong> — every bar, no matter how big or small, gets cut into 100 equal pieces. That's the whole trick behind percentages.</p>
+      <p>If your friend eats 27 of those 100 pieces, we say your friend ate <strong>27 percent</strong> of the bar. "Percent" literally comes from the Latin <em>per centum</em>, meaning <strong>"out of a hundred."</strong> That's it. That's the entire idea. Every time you see a % sign, your brain should just read it as <span class="calc">"out of 100"</span>.</p>
+      <p>So when someone says "this shirt is 40% off," they mean: imagine the price cut into 100 equal parts, and 40 of those parts are being removed. When a teacher says "you scored 72%," they mean: imagine the full marks split into 100 equal parts, and you collected 72 of them — no matter if the test was actually out of 50 or 500.</p>
+      <p>This is exactly <strong>why</strong> percentages are so useful: they let you compare two completely different things (a 50-mark test and a 500-mark test) on the same fair scale of 100.</p>
+    </section>
+
+    <!-- 2. VISUALISE -->
+    <section id="visualise">
+      <h2 class="sec">2. Seeing it: the 100-box picture</h2>
+      <p>Here are 100 little boxes. I've coloured in 27 of them — exactly the chocolate example from above.</p>
+      <div class="choc-wrap">
+        <div class="choc-grid">
+          <i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i>
+          <i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i>
+          <i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="choc-caption">27 filled out of 100 boxes &nbsp;=&nbsp; 27 / 100 &nbsp;=&nbsp; <strong>27%</strong></div>
+      </div>
+      <p>Now here's the part most people never get told clearly: <strong>real life almost never hands you a "100" to work with.</strong> A class might have 35 students, a salary might be ₹48,000, a town might have 7,200 people. So your real job in every percentage question is just this:</p>
+      <p style="text-align:center;"><strong>shrink or stretch whatever number you have so it behaves like it's "out of 100."</strong></p>
+      <p>That single sentence is 90% of the percentage chapter. Everything else is just different ways of asking you to do that shrinking/stretching.</p>
+    </section>
+
+    <!-- 3. CONVERT -->
+    <section id="convert">
+      <h2 class="sec">3. Fraction ↔ Decimal ↔ Percentage</h2>
+      <p>A percentage is just a fraction with 100 fixed as the bottom number (denominator). Because of that, you can always slide between three forms of the same value:</p>
+      <div class="formula-box">
+        <div class="label">the conversion triangle</div>
+        <div class="f">Fraction → Decimal &nbsp;:&nbsp; divide top by bottom</div>
+        <div class="f">Decimal → Percentage &nbsp;:&nbsp; multiply by 100 (shift decimal point 2 places right)</div>
+        <div class="f">Percentage → Fraction &nbsp;:&nbsp; write "/100" and simplify</div>
+      </div>
+      <table>
+        <tr><th>Fraction</th><th>Decimal</th><th>Percentage</th></tr>
+        <tr><td class="num">1/4</td><td class="num">0.25</td><td class="num">25%</td></tr>
+        <tr><td class="num">3/4</td><td class="num">0.75</td><td class="num">75%</td></tr>
+        <tr><td class="num">3/5</td><td class="num">0.6</td><td class="num">60%</td></tr>
+        <tr><td class="num">7/20</td><td class="num">0.35</td><td class="num">35%</td></tr>
+        <tr><td class="num">9/8</td><td class="num">1.125</td><td class="num">112.5%</td></tr>
+      </table>
+      <p>Notice the last row — percentages <em>can</em> go above 100%. That just means "more than the whole thing," which happens often in growth/increase questions (e.g. a population growing to 112.5% of what it was).</p>
+    </section>
+
+    <!-- 4. SHORTCUTS -->
+    <section id="shortcuts">
+      <h2 class="sec">4. The fraction shortcut table (memorise this — it wins you time)</h2>
+      <p>This is the single highest-value table in the whole percentage chapter for SSC. Once you know that <span class="calc">16.67% = 1/6</span>, finding "16.67% of 480" becomes a one-second division (<span class="calc">480 ÷ 6 = 80</span>) instead of a slow multiplication. Examiners deliberately use these "ugly" percentages because they know most students will multiply slowly — don't be that student.</p>
+      <table>
+        <tr><th>Fraction</th><th>Percentage</th><th>Fraction</th><th>Percentage</th></tr>
+        <tr><td class="num">1/2</td><td class="num">50%</td><td class="num">1/9</td><td class="num">11.11%</td></tr>
+        <tr><td class="num">1/3</td><td class="num">33.33%</td><td class="num">1/10</td><td class="num">10%</td></tr>
+        <tr><td class="num">2/3</td><td class="num">66.67%</td><td class="num">1/11</td><td class="num">9.09%</td></tr>
+        <tr><td class="num">1/4</td><td class="num">25%</td><td class="num">1/12</td><td class="num">8.33%</td></tr>
+        <tr><td class="num">1/5</td><td class="num">20%</td><td class="num">1/16</td><td class="num">6.25%</td></tr>
+        <tr><td class="num">1/6</td><td class="num">16.67%</td><td class="num">1/20</td><td class="num">5%</td></tr>
+        <tr><td class="num">1/7</td><td class="num">14.28%</td><td class="num">1/25</td><td class="num">4%</td></tr>
+        <tr><td class="num">1/8</td><td class="num">12.5%</td><td class="num">1/40</td><td class="num">2.5%</td></tr>
+      </table>
+      <p><strong>How to use it:</strong> whenever you see a percentage in a question, ask "is this one of my fractions?" <span class="calc">12.5% of 640</span> → recognise 12.5% = 1/8 → <span class="calc">640 ÷ 8 = 80</span>. Done in two seconds, no multiplication needed.</p>
+    </section>
+
+    <!-- 5. FORMULAS -->
+    <section id="formulas">
+      <h2 class="sec">5. Core formulas (highlight these)</h2>
+      <p>Every single percentage question — no matter how scary it looks — is built from one of these blocks.</p>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="label">the master formula</div>
+          <div class="f">Percentage = (Part ÷ Whole) × 100</div>
+        </div>
+        <div class="formula-box">
+          <div class="label">finding the part</div>
+          <div class="f">Part = (Percentage ÷ 100) × Whole</div>
+        </div>
+        <div class="formula-box">
+          <div class="label">finding the whole</div>
+          <div class="f">Whole = Part ÷ (Percentage ÷ 100)</div>
+        </div>
+        <div class="formula-box">
+          <div class="label">percentage increase</div>
+          <div class="f">% Increase = (Increase ÷ Original) × 100</div>
+        </div>
+        <div class="formula-box">
+          <div class="label">percentage decrease</div>
+          <div class="f">% Decrease = (Decrease ÷ Original) × 100</div>
+        </div>
+        <div class="formula-box">
+          <div class="label">value after a% increase</div>
+          <div class="f">New Value = Original × (100 + a)/100</div>
+        </div>
+        <div class="formula-box">
+          <div class="label">value after a% decrease</div>
+          <div class="f">New Value = Original × (100 − a)/100</div>
+        </div>
+        <div class="formula-box">
+          <div class="label">two changes, one after another</div>
+          <div class="f">Net % = a + b + (ab/100)</div>
+        </div>
+      </div>
+      <p style="margin-top:18px;">A quick note on that last one, the <strong>successive change</strong> formula: use a <strong>+</strong> sign for an increase and a <strong>−</strong> sign for a decrease inside the formula. So "20% increase then 10% decrease" is <span class="calc">a=+20, b=−10</span> → <span class="calc">20 + (−10) + (20×−10)/100 = 20 − 10 − 2 = +8%</span> net increase. We'll unpack exactly why this works in the next subtopic (Successive Percentage Change) — for now just know it exists.</p>
+    </section>
+
+    <!-- 6. EXAMPLES -->
+    <section id="examples">
+      <h2 class="sec">6. Worked examples, step by step</h2>
+      <p>Five examples, getting progressively closer to real exam difficulty. Read the reasoning, not just the arithmetic.</p>
+
+      <div class="example">
+        <h4>Example 1 — the absolute basics</h4>
+        <p class="step"><strong>Q:</strong> What is 25% of 80?</p>
+        <p class="step">25% means 25 out of every 100. So we want 25/100 of 80.</p>
+        <p class="step"><span class="calc">25% of 80 = (25/100) × 80 = 0.25 × 80 = 20</span></p>
+        <p class="step">Shortcut: 25% = 1/4 (from our table), so just do <span class="calc">80 ÷ 4 = 20</span>.</p>
+        <p class="ans">Answer: 20</p>
+      </div>
+
+      <div class="example">
+        <h4>Example 2 — "what percent" (reverse direction)</h4>
+        <p class="step"><strong>Q:</strong> 45 is what percent of 180?</p>
+        <p class="step">Here 45 is the "Part" and 180 is the "Whole." Use the master formula.</p>
+        <p class="step"><span class="calc">Percentage = (45 ÷ 180) × 100 = 0.25 × 100 = 25%</span></p>
+        <p class="ans">Answer: 25%</p>
+      </div>
+
+      <div class="example">
+        <h4>Example 3 — percentage increase</h4>
+        <p class="step"><strong>Q:</strong> A shopkeeper's daily sale went from ₹400 to ₹460. Find the percentage increase.</p>
+        <p class="step">Increase = 460 − 400 = 60. Original (the number we're comparing <em>against</em>) = 400.</p>
+        <p class="step"><span class="calc">% Increase = (60 ÷ 400) × 100 = 15%</span></p>
+        <div class="bar-block">
+          <div class="bar-label">Before (₹400) vs After (₹460), shown to scale</div>
+          <div class="bar-track"><div class="bar-fill before" style="width:69.5%;">₹400</div></div>
+          <div class="bar-track" style="margin-top:4px;"><div class="bar-fill after" style="width:80%;">₹460</div></div>
+        </div>
+        <p class="ans">Answer: 15% increase</p>
+      </div>
+
+      <div class="example">
+        <h4>Example 4 — the "more than" trap</h4>
+        <p class="step"><strong>Q:</strong> A is 25% more than B. By what percentage is B less than A?</p>
+        <p class="step">This is the single most common beginner mistake in the whole chapter — students assume the answer is also 25%. It is NOT, because the base (the "whole" we divide by) changes.</p>
+        <p class="step">Let B = 100. "A is 25% more than B" → A = 100 + 25 = 125.</p>
+        <p class="step">Now find how much less B is than A, as a percentage of <strong>A</strong> (since now A is our base):</p>
+        <p class="step"><span class="calc">% less = ((125 − 100) ÷ 125) × 100 = (25 ÷ 125) × 100 = 20%</span></p>
+        <p class="ans">Answer: 20% (not 25%) — always re-check which number is the new base.</p>
+      </div>
+
+      <div class="example">
+        <h4>Example 5 — building toward exam level</h4>
+        <p class="step"><strong>Q:</strong> In an election with two candidates, the winner got 60% of the total votes and won by 4,800 votes. Find the total number of votes.</p>
+        <p class="step">If winner has 60%, loser has the remaining 40%. The "win margin" is the difference between these two shares.</p>
+        <p class="step">Margin % = 60% − 40% = 20% of total votes = 4,800.</p>
+        <p class="step"><span class="calc">Total = 4800 ÷ (20/100) = 4800 × 5 = 24,000</span></p>
+        <p class="ans">Answer: 24,000 total votes</p>
+      </div>
+    </section>
+
+    <!-- 7. MISTAKES -->
+    <section id="mistakes">
+      <h2 class="sec">7. Mistakes that cost marks</h2>
+      <div class="mistake">
+        <div class="tag">✗ Mistake 1</div>
+        <p style="margin:6px 0 0;">Thinking "A is 25% more than B" and "B is 25% less than A" are the same number. They never are (see Example 4) — the base changes between the two statements.</p>
+      </div>
+      <div class="mistake">
+        <div class="tag">✗ Mistake 2</div>
+        <p style="margin:6px 0 0;">Believing a 20% increase followed by a 20% decrease brings you back to the original value. It does not — you end up at 96% of the original, a 4% net loss. (Check it with the successive-change formula from Section 5.)</p>
+      </div>
+      <div class="mistake">
+        <div class="tag">✗ Mistake 3</div>
+        <p style="margin:6px 0 0;">Mixing up "percentage" with "percentage point." If interest goes from 8% to 10%, that's a rise of <strong>2 percentage points</strong>, but a <strong>25% increase</strong> in the rate itself <span class="calc">(2÷8)×100</span>. SSC sometimes tests this exact distinction in GA, and increasingly in mixed Quant statements.</p>
+      </div>
+      <div class="mistake">
+        <div class="tag">✗ Mistake 4</div>
+        <p style="margin:6px 0 0;">Forgetting to re-anchor the base in multi-step problems. Once a value changes, the next percentage almost always applies to the <em>new</em> value, not the original one — unless the question explicitly says otherwise.</p>
+      </div>
+    </section>
+
+    <!-- 8. PRACTICE BANK -->
+    <section id="practice">
+      <h2 class="sec">8. Practice Bank — 34 Questions</h2>
+      <div class="legend">
+        <div><span class="badge found">Foundation</span>&nbsp; basic skill-building questions, written for this page — not from an actual exam.</div>
+        <div><span class="badge pyq">PYQ</span>&nbsp; genuine SSC CGL previous year questions, sourced from ExamSIDE's dated archive and Testbook's verified SSC CGL question bank. I've independently re-solved every one to confirm the answer.</div>
+      </div>
+
+      <div class="group-title">Foundation Questions (Q1–Q12)</div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q1</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">Convert 3/4 to a percentage.</p>
+        <div class="q-solution"><div class="lbl">Solution</div><span class="calc">(3/4) × 100 = 75</span></div>
+        <div class="q-ans">Answer: 75%</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q2</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">Convert 0.6 into a percentage.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>Shift the decimal point two places right: <span class="calc">0.6 → 60.0</span></div>
+        <div class="q-ans">Answer: 60%</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q3</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">What is 20% of 150?</p>
+        <div class="q-solution"><div class="lbl">Solution</div><span class="calc">(20/100) × 150 = 30</span></div>
+        <div class="q-ans">Answer: 30</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q4</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">What is 35% of 200?</p>
+        <div class="q-solution"><div class="lbl">Solution</div><span class="calc">(35/100) × 200 = 70</span></div>
+        <div class="q-ans">Answer: 70</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q5</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">18 is what percent of 90?</p>
+        <div class="q-solution"><div class="lbl">Solution</div><span class="calc">(18/90) × 100 = 20</span></div>
+        <div class="q-ans">Answer: 20%</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q6</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">In a class, 45 out of 60 students passed. What percentage passed?</p>
+        <div class="q-solution"><div class="lbl">Solution</div><span class="calc">(45/60) × 100 = 75</span></div>
+        <div class="q-ans">Answer: 75%</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q7</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">A number increased from 50 to 65. Find the percentage increase.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>Increase = 15, Original = 50 → <span class="calc">(15/50) × 100 = 30</span></div>
+        <div class="q-ans">Answer: 30%</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q8</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">A number decreased from 80 to 60. Find the percentage decrease.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>Decrease = 20, Original = 80 → <span class="calc">(20/80) × 100 = 25</span></div>
+        <div class="q-ans">Answer: 25%</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q9</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">40% of a number is 52. Find the number.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>Let the number be x → <span class="calc">(40/100) × x = 52 → x = 52 × (100/40) = 130</span></div>
+        <div class="q-ans">Answer: 130</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q10</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">Convert 5/8 to a percentage.</p>
+        <div class="q-solution"><div class="lbl">Solution</div><span class="calc">(5/8) × 100 = 62.5</span></div>
+        <div class="q-ans">Answer: 62.5%</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q11</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">Find 12.5% of 480 using the fraction shortcut.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>12.5% = 1/8 (from the shortcut table) → <span class="calc">480 ÷ 8 = 60</span></div>
+        <div class="q-ans">Answer: 60</div>
+      </div>
+
+      <div class="q-card found">
+        <div class="q-head"><span class="q-num">Q12</span><span class="badge found">Foundation</span></div>
+        <p class="q-text">A price of ₹250 increases by 8%. Find the new price.</p>
+        <div class="q-solution"><div class="lbl">Solution</div><span class="calc">New = 250 × (100+8)/100 = 250 × 1.08 = 270</span></div>
+        <div class="q-ans">Answer: ₹270</div>
+      </div>
+
+      <div class="group-title">Previous Year Questions (Q13–Q34)</div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q13</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL Tier I — 26 Jul 2023, Shift 1</div>
+        <p class="q-text">Which of the following is the least: 12% of 625, 15% of 555, 10% of 720, or 9% of 845?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          <span class="calc">12% of 625 = 75</span> · <span class="calc">15% of 555 = 83.25</span> · <span class="calc">10% of 720 = 72</span> · <span class="calc">9% of 845 = 76.05</span>
+        </div>
+        <div class="q-ans">Answer: 10% of 720 (= 72) is the least</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q14</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL Tier I — 26 Jul 2023, Shift 1</div>
+        <p class="q-text">Ravi initially used to save 20% of his monthly income. His income was raised by 25%, and his savings went up by 5%. What percentage of his present income does he now save?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let income = 100, so savings = 20. New income = <span class="calc">100 × 1.25 = 125</span>. New savings = <span class="calc">20 × 1.05 = 21</span>. Required % = <span class="calc">(21/125) × 100 = 16.8</span>
+        </div>
+        <div class="q-ans">Answer: 16.8%</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q15</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL Tier I — 27 Jul 2023, Shift 1</div>
+        <p class="q-text">The price of petrol is increased by 81%. By what percentage should consumption be decreased so that expenditure stays unchanged? (correct to two decimals)</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let price = consumption = 100, so expenditure = 10,000. New price = 181. New consumption needed = <span class="calc">10000 ÷ 181 = 55.25</span>. Decrease = <span class="calc">100 − 55.25 = 44.75</span>
+        </div>
+        <div class="q-ans">Answer: ≈ 44.75%</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q16</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL Tier I — 26 Jul 2023, Shift 2</div>
+        <p class="q-text">If, in a competitive exam, the marks obtained by Sam are 19% less than those of Peter, then Peter's marks are how much percentage more than Sam's? (correct to two decimals)</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let Peter = 100, so Sam = 81 (19% less). Required % = <span class="calc">((100−81)/81) × 100 = 23.46</span>
+        </div>
+        <div class="q-ans">Answer: ≈ 23.46% — notice this is the same "more vs less" trap from Example 4</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q17</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL Tier I — 26 Jul 2023, Shift 2</div>
+        <p class="q-text">A father gives 8% of his monthly income to his two sons as pocket money. The elder son gets 85% of the total amount given to both sons. He spends 90% of his share and saves ₹17. What is the father's monthly income?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Elder son saves 10% of his share = ₹17 → his share = <span class="calc">170</span>. This is 85% of the total given to both sons → total given = <span class="calc">170/0.85 = 200</span>. This total is 8% of income → income = <span class="calc">200/0.08 = 2500</span>
+        </div>
+        <div class="q-ans">Answer: ₹2,500</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q18</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL Tier I — 26 Jul 2023, Shift 2 (table-based)</div>
+        <p class="q-text">College B enrolled/passed students over 2010–2014 were: 550/530, 450/420, 600/550, 650/620, 700/680. Find the percentage of students who passed from college B across all five years combined (rounded to 2 decimals).</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Total enrolled = <span class="calc">550+450+600+650+700 = 2950</span>. Total passed = <span class="calc">530+420+550+620+680 = 2800</span>. Required % = <span class="calc">(2800/2950) × 100 = 94.92</span>
+        </div>
+        <div class="q-ans">Answer: ≈ 94.92%</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q19</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL Tier I — 26 Jul 2023, Shift 2 (table-based)</div>
+        <p class="q-text">Five departments had this % share of employees — Dept 1–5 in 2020: 24, 21, 20, 19, 16; in 2021: 21, 22, 18, 19, 20. Total employees were 1,200 (2020) and 1,600 (2021). In which department was the actual headcount variation the largest?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Convert each % to an actual count, then find the difference: Dept1: 288→336 (Δ48) · Dept2: 252→352 (Δ100) · Dept3: 240→288 (Δ48) · Dept4: 228→304 (Δ76) · Dept5: 192→320 (Δ128)
+        </div>
+        <div class="q-ans">Answer: Department 5 (variation of 128 employees)</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q20</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">The price of petrol shot up by 5% from ₹82/litre. A man travels 3,045 km every month and his car gives 15 km/litre. What is the increase in monthly expenditure (to the nearest ₹)?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Monthly petrol used = <span class="calc">3045/15 = 203 litres</span>. Price hike per litre = <span class="calc">82 × 0.05 = ₹4.1</span>. Extra monthly cost = <span class="calc">203 × 4.1 = 832.3 ≈ 832</span>
+        </div>
+        <div class="q-ans">Answer: ₹832</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q21</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A 15% reduction in the price of salt lets a person buy 2 kg more for ₹272. Find the reduced price per kg.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let original price = x/kg. Reduced price = <span class="calc">0.85x</span>. Extra quantity equation: <span class="calc">272/0.85x − 272/x = 2</span> → solving gives <span class="calc">x = 24</span>. Reduced price = <span class="calc">0.85 × 24 = 20.40</span>
+        </div>
+        <div class="q-ans">Answer: ₹20.40 per kg</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q22</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">B scored 20% more than A. A scored 10% less than C. D scored 20% more than C. By what percentage is D's score more than A's?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let C = 100 → A = 90 (10% less), D = 120 (20% more than C). Required % = <span class="calc">((120−90)/90) × 100 = 33.33</span>
+        </div>
+        <div class="q-ans">Answer: 33⅓%</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q23</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A person's monthly expenses are 66⅔% more than savings. Income rises 44%, expenses rise 60%, and savings increase by ₹1,040. Find the initial expenditure.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          66⅔% more means expenses = (5/3) × savings. Take savings = 3x, expenses = 5x, income = 8x. New income = <span class="calc">8x × 1.44 = 11.52x</span>. New expenses = <span class="calc">5x × 1.6 = 8x</span>. New savings = <span class="calc">11.52x − 8x = 3.52x</span>. Increase = <span class="calc">3.52x − 3x = 0.52x = 1040 → x = 2000</span>. Initial expenditure = <span class="calc">5x = 10,000</span>
+        </div>
+        <div class="q-ans">Answer: ₹10,000</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q24</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A, B and C donate 10%, 7% and 9% of their salaries respectively. A and B earn equal salaries; the difference between their donations is ₹900. The combined donation of A and B is ₹600 more than C's. Find C's monthly salary.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let A's & B's salary = 100x each. <span class="calc">10x − 7x = 900 → x = 300</span>. A+B donation = <span class="calc">17x = 5100</span>. C's donation = <span class="calc">5100 − 600 = 4500 = 9% of C's salary → C's salary = 4500/0.09 = 50,000</span>
+        </div>
+        <div class="q-ans">Answer: ₹50,000</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q25</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A school has 1,400 students, 35% of them girls. 80% of boys and 90% of girls passed the annual exam. Find the percentage of students who failed.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Girls = <span class="calc">1400 × 0.35 = 490</span>, Boys = 910. Boys passed = <span class="calc">728</span>, failed = 182. Girls passed = <span class="calc">441</span>, failed = 49. Total failed = <span class="calc">231</span>. Required % = <span class="calc">(231/1400) × 100 = 16.5</span>
+        </div>
+        <div class="q-ans">Answer: 16.5%</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q26</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A's weight is 20% more than B's, and B's weight is 30% more than C's. By what percentage is A's weight more than C's?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let C = 100 → B = 130 (30% more) → A = <span class="calc">130 × 1.2 = 156</span>. Required % = <span class="calc">((156−100)/100) × 100 = 56</span>
+        </div>
+        <div class="q-ans">Answer: 56%</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q27</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A society election had two candidates, A and B. B got 25% fewer votes than A. The number of members who didn't vote equalled B's vote count. The society has 20,000 members. By how many votes did A win?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let A's votes = x → B's votes = <span class="calc">0.75x</span>, non-voters = <span class="calc">0.75x</span>. Total: <span class="calc">x + 0.75x + 0.75x = 20000 → x = 8000</span>. B = <span class="calc">6000</span>. Margin = <span class="calc">8000 − 6000 = 2000</span>
+        </div>
+        <div class="q-ans">Answer: 2,000 votes</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q28</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">In a school, 4% of students were absent for exams. 10% of those who appeared failed. Of the remaining, 50% got distinction and 432 students passed without distinction. Find the total number of students.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let total = 100x. Absent = 4x, appeared = 96x. Failed = <span class="calc">9.6x</span>, passed = <span class="calc">86.4x</span>. Passed-without-distinction = half of that = <span class="calc">43.2x = 432 → x = 10</span>. Total = <span class="calc">1000</span>
+        </div>
+        <div class="q-ans">Answer: 1,000 students</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q29</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A city's population rose 30% in year one and fell 15% in year two. If the present population is 11,050, find the population two years ago.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let original population = x. <span class="calc">x × 1.30 × 0.85 = 11050</span> → <span class="calc">x × 1.105 = 11050 → x = 10,000</span>
+        </div>
+        <div class="q-ans">Answer: 10,000 — this is exactly the "successive change" idea from Section 5, previewing the next subtopic</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q30</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">Sugar's price rises 18%, but a person wants their total expenditure to rise by only 12%. By what percentage (to 1 decimal) should they cut consumption?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let original price/expenditure = 100x. New price = <span class="calc">118x</span>. Allowed new expenditure = <span class="calc">112x</span>. Required decrease % = <span class="calc">((118−112)/118) × 100 = 5.08 ≈ 5.1</span>
+        </div>
+        <div class="q-ans">Answer: ≈ 5.1%</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q31</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">Two numbers are 40% and 80% less than a third number. By what percentage must the second number be increased to equal the first?</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let third number = 100. First = <span class="calc">60</span>, Second = <span class="calc">20</span>. Required increase % = <span class="calc">((60−20)/20) × 100 = 200</span>
+        </div>
+        <div class="q-ans">Answer: 200%</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q32</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A man donates 30% of his wealth to charity, then 30% and 25% of the remainder to his wife and son. The rest is split equally among 3 daughters; one daughter gets ₹42 lakh. Find his total wealth.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let wealth = x. After charity: <span class="calc">0.7x</span> remains. Wife gets <span class="calc">0.21x</span>, son gets <span class="calc">0.175x</span>. Daughters' share = <span class="calc">0.7x − 0.21x − 0.175x = 0.315x</span>, split 3 ways = <span class="calc">0.105x = 42 → x = 400</span>
+        </div>
+        <div class="q-ans">Answer: ₹400 lakh</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q33</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A man's annual income rises by ₹5 lakh, but his tax rate falls from 12% to 10%. He now pays ₹10,000 more tax. Find his increased income.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let original income = x (in ₹). <span class="calc">0.10(x+500000) − 0.12x = 10000</span> → <span class="calc">0.02x = 40000 → x = 2,000,000 = ₹20 lakh</span>. Increased income = <span class="calc">20 + 5 = 25</span> lakh
+        </div>
+        <div class="q-ans">Answer: ₹25 lakh</div>
+      </div>
+
+      <div class="q-card pyq">
+        <div class="q-head"><span class="q-num">Q34</span><span class="badge pyq">PYQ</span></div>
+        <div class="q-source">SSC CGL — previous year question bank</div>
+        <p class="q-text">A candidate scores 45% of total marks and still fails by 40 marks. The passing percentage is 55%. Find the maximum marks.</p>
+        <div class="q-solution"><div class="lbl">Solution</div>
+          Let max marks = M. Passing marks − Scored marks = 40 → <span class="calc">0.55M − 0.45M = 40 → 0.10M = 40 → M = 400</span>
+        </div>
+        <div class="q-ans">Answer: 400</div>
+      </div>
+
+    </section>
+
+    <!-- 9. SUMMARY -->
+    <section id="summary">
+      <h2 class="sec">9. One-page revision summary</h2>
+      <div class="summary-box">
+        <ul>
+          <li>% always means "out of 100" — your job is to scale any number onto that 100-scale.</li>
+          <li>Percentage = (Part ÷ Whole) × 100</li>
+          <li>Part = (% ÷ 100) × Whole &nbsp;|&nbsp; Whole = Part ÷ (% ÷ 100)</li>
+          <li>New value after +a% = Original × (100+a)/100</li>
+          <li>New value after −a% = Original × (100−a)/100</li>
+          <li>Two changes back to back: Net% = a + b + (ab/100), with sign for increase/decrease</li>
+          <li>"A is x% more than B" ≠ "B is x% less than A" — always re-anchor the base</li>
+          <li>Know your fraction-percentage table cold: 1/3, 1/6, 1/7, 1/8, 1/12 etc. — this is where SSC speed is won or lost</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h3>Coming next in this series</h3>
+    <p>Percentage Basics is subtopic 1 of 7. Tell me when you're ready and we'll build the next one the same way — full concept + 30+ worked PYQs:</p>
+    <ol>
+      <li>Percentage Increase / Decrease (deeper, with reverse-percentage problems)</li>
+      <li>Successive Percentage Change (the a+b+ab/100 formula, properly explained)</li>
+      <li>Comparison-type problems ("A is x% more/less than B")</li>
+      <li>Population growth & depreciation</li>
+      <li>Election & pass/fail percentage problems</li>
+      <li>Percentage in Data Interpretation (tables, bar & pie charts)</li>
+    </ol>
+  </footer>
+
+</div>
+</body>
+</html>
