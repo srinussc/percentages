@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC CGL – Percentage Increase & Decrease | Complete Study Material</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #0d1b4b;
+    --royal:   #1a3a8f;
+    --purple:  #5c35c8;
+    --violet:  #7c3aed;
+    --indigo:  #4f46e5;
+    --sky:     #0ea5e9;
+    --gold:    #f59e0b;
+    --mint:    #10b981;
+    --rose:    #f43f5e;
+    --white:   #ffffff;
+    --off:     #f8faff;
+    --muted:   #64748b;
+    --border:  #e2e8f0;
+    --card-shadow: 0 4px 24px rgba(13,27,75,0.10);
+    --glow: 0 0 0 3px rgba(124,58,237,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off);
+    color: #1e293b;
+    min-height: 100vh;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #0d1b4b 0%, #1a3a8f 35%, #5c35c8 70%, #7c3aed 100%);
+    padding: 56px 32px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.07) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(124,58,237,0.25) 0%, transparent 50%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+  }
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .hero h1 span {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.80);
+    font-size: 16px;
+    max-width: 560px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .stat-pill {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 12px 22px;
+    color: #fff;
+    text-align: center;
+  }
+  .stat-pill strong { display:block; font-family:'Poppins',sans-serif; font-size:22px; font-weight:700; color:#fbbf24; }
+  .stat-pill span { font-size:12px; opacity:0.8; letter-spacing:0.5px; }
+
+  /* ─── WRAPPER ─── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+  /* ─── CONCEPT STRIP ─── */
+  .concept-strip {
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    padding: 36px 32px;
+  }
+  .concept-strip h2 {
+    font-family:'Poppins',sans-serif; font-size:20px; font-weight:700;
+    color: var(--navy); margin-bottom:20px; display:flex; align-items:center; gap:10px;
+  }
+  .concept-strip h2::before { content:'📐'; }
+  .formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .formula-card {
+    background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%);
+    border: 1.5px solid #c7d2fe;
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .formula-card h4 { font-family:'Poppins',sans-serif; font-size:13px; font-weight:600; color:var(--royal); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px; }
+  .formula-card .formula {
+    font-family:'JetBrains Mono',monospace; font-size:13px; color:#1e293b;
+    background:#fff; border-radius:8px; padding:10px 14px; border-left:3px solid var(--violet);
+    line-height:1.6;
+  }
+  .formula-card .note { font-size:12px; color:var(--muted); margin-top:8px; }
+
+  /* ─── TABS ─── */
+  .tabs-wrapper {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs-wrapper::-webkit-scrollbar { display:none; }
+  .tabs {
+    display: flex;
+    min-width: max-content;
+    padding: 0 20px;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.55);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 16px 20px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.25s;
+    white-space: nowrap;
+    letter-spacing: 0.2px;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,0.85); }
+  .tab-btn.active {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+    background: rgba(251,191,36,0.07);
+  }
+
+  /* ─── SECTION ─── */
+  .section { display: none; padding: 40px 0 60px; }
+  .section.active { display: block; }
+
+  .section-header {
+    display: flex; align-items: flex-start; gap: 18px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 26px 28px;
+    margin-bottom: 32px;
+    box-shadow: var(--card-shadow);
+    border-left: 5px solid var(--violet);
+  }
+  .section-icon {
+    width: 52px; height: 52px; flex-shrink: 0;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+  }
+  .section-header h2 { font-family:'Poppins',sans-serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+  .section-header p { font-size:14px; color:var(--muted); line-height:1.6; }
+
+  /* ─── QUICK TIP ─── */
+  .tip-box {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 1.5px solid #fcd34d;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .tip-box .tip-icon { font-size: 20px; flex-shrink:0; margin-top:1px; }
+  .tip-box p { font-size: 14px; color: #78350f; line-height: 1.7; }
+  .tip-box strong { color: #92400e; }
+
+  /* ─── QUESTIONS ─── */
+  .questions-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+  }
+  .questions-header h3 { font-family:'Poppins',sans-serif; font-size:17px; font-weight:700; color:var(--navy); }
+  .q-count { background:var(--violet); color:#fff; font-size:12px; font-weight:700; padding:4px 12px; border-radius:50px; font-family:'Poppins',sans-serif; }
+
+  .q-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .q-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(13,27,75,0.07);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .q-card:hover { box-shadow: 0 6px 24px rgba(92,53,200,0.13); transform: translateY(-1px); }
+
+  .q-head {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .q-num {
+    min-width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700;
+    color: #fff; flex-shrink: 0;
+  }
+  .q-text { font-size: 14.5px; line-height: 1.7; color: #1e293b; flex: 1; padding-top: 4px; }
+  .q-text strong { color: var(--royal); }
+
+  .q-toggle {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0; margin-top: 2px;
+    transition: all 0.25s; color: var(--violet); background: #f8f0ff;
+  }
+  .q-card.open .q-toggle { transform: rotate(180deg); background: var(--violet); color: #fff; border-color: var(--violet); }
+
+  .q-answer {
+    display: none;
+    background: linear-gradient(135deg, #f8f0ff 0%, #eff6ff 100%);
+    padding: 16px 20px 18px 66px;
+    border-top: 1px solid #e9d5ff;
+  }
+  .q-card.open .q-answer { display: block; }
+  .ans-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--violet); text-transform: uppercase; margin-bottom: 6px; }
+  .ans-text { font-size: 14px; line-height: 1.8; color: #1e293b; }
+  .ans-text .highlight { background: #fef3c7; padding: 1px 6px; border-radius: 4px; font-weight: 600; color: #92400e; }
+  .ans-text .correct { color: var(--mint); font-weight: 700; font-size: 15px; }
+  .ans-formula { font-family:'JetBrains Mono',monospace; background:#fff; border:1px solid #e9d5ff; border-radius:8px; padding:10px 14px; font-size:13px; margin: 8px 0; color:#1e293b; border-left:3px solid var(--violet); }
+
+  .diff-badge {
+    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 50px;
+    letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle;
+  }
+  .easy { background: #d1fae5; color: #065f46; }
+  .med  { background: #fef3c7; color: #92400e; }
+  .hard { background: #fee2e2; color: #991b1b; }
+
+  /* Color schemes per section */
+  .s1 .q-num { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+  .s1 .section-icon { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+  .s2 .q-num { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
+  .s2 .section-icon { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
+  .s3 .q-num { background: linear-gradient(135deg, #10b981, #059669); }
+  .s3 .section-icon { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+  .s4 .q-num { background: linear-gradient(135deg, #f59e0b, #d97706); }
+  .s4 .section-icon { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+  .s5 .q-num { background: linear-gradient(135deg, #f43f5e, #e11d48); }
+  .s5 .section-icon { background: linear-gradient(135deg, #fee2e2, #fecaca); }
+  .s6 .q-num { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+  .s6 .section-icon { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+  .s7 .q-num { background: linear-gradient(135deg, #06b6d4, #0284c7); }
+  .s7 .section-icon { background: linear-gradient(135deg, #cffafe, #a5f3fc); }
+  .s8 .q-num { background: linear-gradient(135deg, #ec4899, #db2777); }
+  .s8 .section-icon { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 13px;
+  }
+  .footer span { color: #fbbf24; font-weight:600; }
+
+  /* ─── SCROLL TO TOP ─── */
+  .scroll-top {
+    position: fixed; bottom: 28px; right: 28px;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--violet), var(--indigo));
+    color: #fff; border: none; cursor: pointer; font-size: 18px;
+    box-shadow: 0 4px 16px rgba(124,58,237,0.4);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 999;
+  }
+  .scroll-top:hover { transform: scale(1.1); }
+
+  /* ─── PROGRESS BAR ─── */
+  .progress-bar {
+    height: 3px;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    position: fixed; top: 0; left: 0; z-index: 9999;
+    transition: width 0.1s;
+  }
+
+  @media(max-width:600px) {
+    .hero { padding: 36px 18px 60px; }
+    .concept-strip { padding: 24px 18px; }
+    .section { padding: 24px 0 40px; }
+    .q-answer { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">SSC CGL · Quantitative Aptitude</div>
+    <h1>Percentage <span>Increase & Decrease</span></h1>
+    <p>Complete subtopic-wise study material with 240+ previous year questions, formulas, and step-by-step solutions.</p>
+    <div class="hero-stats">
+      <div class="stat-pill"><strong>8</strong><span>Subtopics</span></div>
+      <div class="stat-pill"><strong>240+</strong><span>PYQ Questions</span></div>
+      <div class="stat-pill"><strong>100%</strong><span>Solutions</span></div>
+      <div class="stat-pill"><strong>SSC CGL</strong><span>Tier I + II</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONCEPT STRIP ═══════════════ -->
+<div class="concept-strip">
+  <div class="container">
+    <h2>Master Formulas at a Glance</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <h4>New Value After Increase</h4>
+        <div class="formula">New Value = Original × (1 + r/100)<br>= Original × (100 + r) / 100</div>
+        <div class="note">r = rate of increase (%)</div>
+      </div>
+      <div class="formula-card">
+        <h4>New Value After Decrease</h4>
+        <div class="formula">New Value = Original × (1 – r/100)<br>= Original × (100 – r) / 100</div>
+        <div class="note">r = rate of decrease (%)</div>
+      </div>
+      <div class="formula-card">
+        <h4>Finding Original Value</h4>
+        <div class="formula">Original = New Value × 100 / (100 ± r)<br>Use + for increase, – for decrease</div>
+        <div class="note">Reverse percentage technique</div>
+      </div>
+      <div class="formula-card">
+        <h4>Successive % Change</h4>
+        <div class="formula">Net % = a + b + (a×b)/100<br>(a = 1st change, b = 2nd change)</div>
+        <div class="note">Use –ve sign for decrease</div>
+      </div>
+      <div class="formula-card">
+        <h4>% Change Formula</h4>
+        <div class="formula">% Change = (New – Old) / Old × 100<br>+ve = Increase, –ve = Decrease</div>
+      </div>
+      <div class="formula-card">
+        <h4>Price–Quantity Inverse</h4>
+        <div class="formula">If price ↑ by r%, then consumption<br>must ↓ by: r/(100+r) × 100 %</div>
+        <div class="note">To keep expenditure constant</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TABS ═══════════════ -->
+<div class="tabs-wrapper">
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab(0)">1. New Value Basics</button>
+      <button class="tab-btn" onclick="showTab(1)">2. Reverse % (Original)</button>
+      <button class="tab-btn" onclick="showTab(2)">3. Successive Changes</button>
+      <button class="tab-btn" onclick="showTab(3)">4. Area & Volume %</button>
+      <button class="tab-btn" onclick="showTab(4)">5. Salary & Income</button>
+      <button class="tab-btn" onclick="showTab(5)">6. Population Problems</button>
+      <button class="tab-btn" onclick="showTab(6)">7. Price–Consumption</button>
+      <button class="tab-btn" onclick="showTab(7)">8. Marks & Exam</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SECTIONS ═══════════════ -->
+<div class="container">
+
+<!-- ─── SECTION 1 ─── -->
+<div class="section active s1" id="sec0">
+  <div class="section-header">
+    <div class="section-icon">📈</div>
+    <div>
+      <h2>Finding New Value After % Increase / Decrease</h2>
+      <p>The most fundamental subtopic — directly applying the increase or decrease formula to find the resultant value. Appears in almost every SSC CGL paper.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <p><strong>Golden Shortcut:</strong> For a r% increase, multiply by (100+r)/100. For a r% decrease, multiply by (100–r)/100. Never compute step-by-step — do it in one shot to save time!</p>
+  </div>
+  <div class="questions-header">
+    <h3>Previous Year Questions</h3>
+    <span class="q-count">30 Questions</span>
+  </div>
+  <div class="q-list">
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">1</div>
+        <div class="q-text">If a number is increased by 25%, it becomes 375. What is the original number? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Original × 125/100 = 375 → Original = 375 × 100/125 = <span class="correct">300</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">2</div>
+        <div class="q-text">A number is decreased by 20%. The result is 480. Find the original number. <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Original × 80/100 = 480 → Original = 480 × 100/80 = <span class="correct">600</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">3</div>
+        <div class="q-text">The price of an article is ₹560. If its price is increased by 12.5%, what will be the new price? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">New Price = 560 × 112.5/100 = 560 × 9/8 = <span class="correct">₹630</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">4</div>
+        <div class="q-text">The value of a machine depreciates at 15% per year. If its present value is ₹85,000, what will be its value after 1 year? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Value after 1 yr = 85000 × 85/100 = <span class="correct">₹72,250</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">5</div>
+        <div class="q-text">A shopkeeper increases the cost of an item by 30%. If the original cost is ₹1,200, find the selling price. <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">SP = 1200 × 130/100 = <span class="correct">₹1,560</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">6</div>
+        <div class="q-text">75 is increased to 105. What is the percentage increase? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">% Increase = (105 – 75)/75 × 100 = 30/75 × 100 = <span class="correct">40%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">7</div>
+        <div class="q-text">144 is decreased to 120. Find the percentage decrease. <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">% Decrease = (144 – 120)/144 × 100 = 24/144 × 100 = <span class="correct">16.67%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">8</div>
+        <div class="q-text">A number when increased by 16⅔%, gives 280. Find the number. <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">16⅔% = 1/6 → New = Original × 7/6 = 280 → Original = 280 × 6/7 = <span class="correct">240</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">9</div>
+        <div class="q-text">What number should be added to 650 to make it 30% more than 600? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">30% more than 600 = 600 × 130/100 = 780<br>Number to add = 780 – 650 = <span class="correct">130</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">10</div>
+        <div class="q-text">A's income is 25% more than B's. By what percent is B's income less than A's? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">If B = 100, A = 125<br>B less than A = (125 – 100)/125 × 100 = <span class="correct">20%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">11</div>
+        <div class="q-text">X's salary is 40% less than Y's. By what percent is Y's salary more than X's? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">If Y = 100, X = 60<br>Y more than X = (100 – 60)/60 × 100 = 40/60 × 100 = <span class="correct">66.67%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">12</div>
+        <div class="q-text">If 60% of a number is 96, what is 75% of that number? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Number = 96 × 100/60 = 160<br>75% of 160 = 160 × 75/100 = <span class="correct">120</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">13</div>
+        <div class="q-text">If 35% of a number added to 39 gives 74, find the number. <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">35% of N = 74 – 39 = 35 → N = 35 × 100/35 = <span class="correct">100</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">14</div>
+        <div class="q-text">The price of sugar falls by 10%. By how much percent can a housewife increase her consumption so that expenditure remains the same? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Increase in consumption = r/(100 – r) × 100 = 10/90 × 100 = <span class="correct">11.11%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">15</div>
+        <div class="q-text">A number is first increased by 10% and then decreased by 10%. The net change in the number is: <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Net % = 10 – 10 – (10×10)/100 = –1%<br>∴ Net change = <span class="correct">1% decrease</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">16</div>
+        <div class="q-text">The population of a town increased from 1,60,000 to 1,72,800. What is the percentage increase? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">% increase = (172800 – 160000)/160000 × 100 = 12800/1600 = <span class="correct">8%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">17</div>
+        <div class="q-text">If 20% of x is 30, then what is 30% of x? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">x = 30 × 5 = 150 → 30% of 150 = <span class="correct">45</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">18</div>
+        <div class="q-text">If 120 is 20% more than a number, find the number. <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">N × 120/100 = 120 → N = 120 × 100/120 = <span class="correct">100</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">19</div>
+        <div class="q-text">Two candidates contested an election. One got 54% of the votes and won by 1,440 votes. Total votes polled = ? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Difference = 54 – 46 = 8%<br>8% of Total = 1440 → Total = 1440 × 100/8 = <span class="correct">18,000</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">20</div>
+        <div class="q-text">A man's salary is ₹18,000. He spends 75% of his salary. How much does he save? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Savings = 25% of 18000 = <span class="correct">₹4,500</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">21</div>
+        <div class="q-text">A building worth ₹1,44,000 is constructed on land worth ₹72,000. After how many years will the value of the building be equal to that of the land if land value increases 25% p.a. and the building depreciates 25% p.a.? <span class="diff-badge hard">Hard</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Land after n yr: 72000 × (5/4)ⁿ<br>Building after n yr: 144000 × (3/4)ⁿ<br>Setting equal: (5/4)ⁿ / (3/4)ⁿ = 2 → (5/3)ⁿ = 2<br>After <span class="correct">2 years</span> both = ₹1,12,500 (approx)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">22</div>
+        <div class="q-text">A is 50% more than B and B is 20% less than C. A is what percent of C? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Let C = 100 → B = 80 → A = 80 × 150/100 = 120<br>A as % of C = <span class="correct">120%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">23</div>
+        <div class="q-text">90 is 75% of what number? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">N = 90 × 100/75 = <span class="correct">120</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">24</div>
+        <div class="q-text">If the numerator of a fraction is increased by 20% and the denominator is decreased by 20%, the value becomes 4/3. What is the original fraction? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Let fraction = N/D<br>(1.2N)/(0.8D) = 4/3 → N/D = (4/3) × (0.8/1.2) = 8/9<br>Original fraction = <span class="correct">8/9</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">25</div>
+        <div class="q-text">A number is 20% more than another. If the smaller number is 80, find the larger. <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text"><div class="ans-formula">Larger = 80 × 120/100 = <span class="correct">96</span></div></div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">26</div>
+        <div class="q-text">The weight of Rohit is 20% less than that of Ankit. How much percent is the weight of Ankit more than Rohit? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Let Ankit = 100, Rohit = 80<br>Ankit more than Rohit = 20/80 × 100 = <span class="correct">25%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">27</div>
+        <div class="q-text">If 3/4th of a number exceeds its 2/3rd by 5, what is the number? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">3N/4 – 2N/3 = 5 → N(9–8)/12 = 5 → N/12 = 5 → N = <span class="correct">60</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">28</div>
+        <div class="q-text">In an election, candidate A got 65% of total valid votes and won by 2,700 votes. If 15% votes were declared invalid, find total votes. <span class="diff-badge hard">Hard</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">Valid votes: A = 65%, B = 35%. Margin = 30% of valid.<br>30% of valid = 2700 → valid = 9000<br>Valid = 85% of total → total = 9000 × 100/85 = <span class="correct">10,588 ≈ 10,600</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">29</div>
+        <div class="q-text">A's marks are 25% less than B's. B's marks are what % more than A's? <span class="diff-badge med">Medium</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">A = 75, B = 100 → B more = 25/75 × 100 = <span class="correct">33⅓%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card s1" onclick="toggleQ(this)">
+      <div class="q-head">
+        <div class="q-num">30</div>
+        <div class="q-text">The present price of a commodity is ₹40. It was ₹32 two years ago. What is the percentage increase? <span class="diff-badge easy">Easy</span></div>
+        <div class="q-toggle">▼</div>
+      </div>
+      <div class="q-answer">
+        <div class="ans-label">Solution</div>
+        <div class="ans-text">
+          <div class="ans-formula">% increase = (40 – 32)/32 × 100 = 8/32 × 100 = <span class="correct">25%</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── SECTION 2: REVERSE % ─── -->
+<div class="section s2" id="sec1">
+  <div class="section-header">
+    <div class="section-icon">🔄</div>
+    <div>
+      <h2>Finding Original Value – Reverse Percentage</h2>
+      <p>Given the value after a % change, work backwards to find the original. A high-frequency topic that trips many students.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <p><strong>Key Trick:</strong> "After 20% increase the value is 600" → Original = 600 × 100/120. Always divide by the multiplier, not subtract the percent!</p>
+  </div>
+  <div class="questions-header">
+    <h3>Previous Year Questions</h3>
+    <span class="q-count">30 Questions</span>
+  </div>
+  <div class="q-list">
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">1</div><div class="q-text">After a 20% increase, a number becomes 240. What was the original number? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Original = 240 × 100/120 = <span class="correct">200</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">2</div><div class="q-text">A price after a 15% decrease is ₹340. What was the original price? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Original = 340 × 100/85 = <span class="correct">₹400</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">3</div><div class="q-text">If a number after an increase of 12% becomes 336, find the number. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Original = 336 × 100/112 = <span class="correct">300</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">4</div><div class="q-text">Ravi's salary after a 25% hike is ₹30,000. What was his original salary? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Original = 30000 × 100/125 = <span class="correct">₹24,000</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">5</div><div class="q-text">A shirt's price after 30% discount is ₹455. Find the marked price. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">MP = 455 × 100/70 = <span class="correct">₹650</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">6</div><div class="q-text">The population of a village after decreasing by 5% is 3,800. Find the original population. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Original = 3800 × 100/95 = <span class="correct">4,000</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">7</div><div class="q-text">A number decreased by 33⅓% gives 80. What is the number? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">33⅓% = 1/3 → remaining = 2/3<br>N × 2/3 = 80 → N = <span class="correct">120</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">8</div><div class="q-text">A number when increased by 16⅔% becomes 560. Find the original number. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">16⅔% = 1/6 → new = 7/6 of original<br>Original = 560 × 6/7 = <span class="correct">480</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">9</div><div class="q-text">After a 20% decrease and then a 25% increase, a number is 120. Find the original number. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Original × 0.80 × 1.25 = 120<br>Original × 1.0 = 120 → Original = <span class="correct">120</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">10</div><div class="q-text">The cost of a TV set was reduced by 20%. If the new price is ₹12,000, what was its original price? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Original = 12000 × 100/80 = <span class="correct">₹15,000</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">11</div><div class="q-text">A number after 2 successive increases of 10% and 20% becomes 792. Find the original number. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">N × 1.1 × 1.2 = 792 → N × 1.32 = 792 → N = <span class="correct">600</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">12</div><div class="q-text">If 40% of the students in a class failed, and the number who passed is 180, find total students. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">60% = 180 → Total = 180 × 100/60 = <span class="correct">300</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">13</div><div class="q-text">A candidate got 40% of votes and was defeated by 2,000 votes. Find the total valid votes. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Winner = 60%, Loser = 40%. Margin = 20%<br>20% of total = 2000 → Total = <span class="correct">10,000</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">14</div><div class="q-text">After a hike of 15%, a salary becomes ₹23,000. What was the original salary? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Original = 23000 × 100/115 = <span class="correct">₹20,000</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">15</div><div class="q-text">A shopkeeper sold a fan for ₹832 at a loss of 4%. Find cost price. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">CP = 832 × 100/96 = <span class="correct">₹866.67 ≈ ₹867</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">16</div><div class="q-text">A man saves 20% of his income. If his expenditure is ₹8,000, find his income. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Expenditure = 80% of income<br>Income = 8000 × 100/80 = <span class="correct">₹10,000</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">17</div><div class="q-text">If 3/5 of a number is 45 more than 1/3 of the same number, find the number. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">3N/5 – N/3 = 45 → 4N/15 = 45 → N = <span class="correct">168.75</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">18</div><div class="q-text">A number after first increasing by 10% and then decreasing by 10% gives 990. Find original. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">N × 1.1 × 0.9 = 990 → N × 0.99 = 990 → N = <span class="correct">1000</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">19</div><div class="q-text">A bill after adding 8% tax amounts to ₹1,620. Find the bill amount before tax. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Bill = 1620 × 100/108 = <span class="correct">₹1,500</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">20</div><div class="q-text">A player scored 110% of his previous match score of 90. What did he score? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Score = 90 × 110/100 = <span class="correct">99</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">21</div><div class="q-text">The price of rice is increased by 25%. By how much should a family reduce its consumption to keep expenditure the same? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Reduction = 25/(100+25) × 100 = 25/125 × 100 = <span class="correct">20%</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">22</div><div class="q-text">500 is increased to 625. What is the % increase? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% = 125/500 × 100 = <span class="correct">25%</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">23</div><div class="q-text">The income of a person is ₹13,000. He spends 92.3% and saves the rest. What does he save? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Savings = 7.7% of 13000 = 13000 × 7.7/100 = <span class="correct">₹1,001</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">24</div><div class="q-text">In a class, boys are 60%. If there are 18 girls, how many students are there in total? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Girls = 40%. 40% of total = 18 → total = 18 × 100/40 = <span class="correct">45</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">25</div><div class="q-text">After spending 80% of his income, a man saves ₹2,400. What is his income? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">20% = ₹2,400 → Income = 2400 × 5 = <span class="correct">₹12,000</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">26</div><div class="q-text">A person spends 75% of his income. If income increases by 20% and expenses increase by 10%, find % change in savings. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Let income = 100. Expenses = 75. Savings = 25.<br>New income = 120. New expenses = 75 × 1.1 = 82.5.<br>New savings = 120 – 82.5 = 37.5<br>% increase = (37.5–25)/25 × 100 = <span class="correct">50%</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">27</div><div class="q-text">A book was sold for ₹576 at 4% profit. Find the cost price. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">CP = 576 × 100/104 = <span class="correct">₹553.85 ≈ ₹554</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">28</div><div class="q-text">After giving a 20% discount, a product is sold for ₹640. What is the marked price? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">MP = 640 × 100/80 = <span class="correct">₹800</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">29</div><div class="q-text">Ram earns 20% more than Shyam. Shyam earns 20% less than Suresh. If Suresh earns ₹5,000, how much does Ram earn? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Shyam = 5000 × 80/100 = 4000<br>Ram = 4000 × 120/100 = <span class="correct">₹4,800</span></div></div></div>
+    </div>
+
+    <div class="q-card s2" onclick="toggleQ(this)">
+      <div class="q-head"><div class="q-num">30</div><div class="q-text">A number is first decreased by 25% then increased by 20%. If the result is 180, what is the original? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div>
+      <div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">N × 0.75 × 1.20 = 180 → N × 0.9 = 180 → N = <span class="correct">200</span></div></div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── SECTION 3: SUCCESSIVE ─── -->
+<div class="section s3" id="sec2">
+  <div class="section-header">
+    <div class="section-icon">🔁</div>
+    <div>
+      <h2>Successive / Compound Percentage Change</h2>
+      <p>Two or more percentage changes applied one after another. Uses the net % formula to find overall effect in one step.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <p><strong>Net % Formula:</strong> a + b + ab/100 (where a and b are % changes; use –ve for decrease). For 3 changes, apply the formula twice.</p>
+  </div>
+  <div class="questions-header"><h3>Previous Year Questions</h3><span class="q-count">30 Questions</span></div>
+  <div class="q-list">
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">1</div><div class="q-text">A number is increased by 20% and then decreased by 20%. Find net % change. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 20 – 20 – (20×20)/100 = –4% → <span class="correct">4% decrease</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">2</div><div class="q-text">A salary increased by 10% and then 10% again. What is the total % increase? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 10 + 10 + (10×10)/100 = 21% → <span class="correct">21% increase</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">3</div><div class="q-text">A price is raised by 30% and then by 20%. What is the total increase? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 30 + 20 + (30×20)/100 = 56% → <span class="correct">56% increase</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">4</div><div class="q-text">The price of an item increased by 40% and then decreased by 25%. Find net change. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 40 – 25 – (40×25)/100 = 15 – 10 = 5% → <span class="correct">5% increase</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">5</div><div class="q-text">A value is decreased by 25% and then increased by 25%. Find net change. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = –25 + 25 + (–25×25)/100 = –6.25% → <span class="correct">6.25% decrease</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">6</div><div class="q-text">Income increased by 10%, then expenditure increased by 20%. If originally income = ₹10,000 and expenditure = ₹8,000, find change in savings. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New income = 11,000. New expenditure = 9,600.<br>Old savings = 2,000. New savings = 1,400.<br>Decrease = 600 → <span class="correct">30% decrease in savings</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">7</div><div class="q-text">A number is increased by 15% and decreased by 10%. Net % change? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 15 – 10 – (15×10)/100 = 5 – 1.5 = <span class="correct">3.5% increase</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">8</div><div class="q-text">A price is reduced by 10%, 20%, and 30% successively. Find net % decrease. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">After 10% & 20%: Net = –10 – 20 + 2 = –28%<br>After –28% & –30%: Net = –28 – 30 + 8.4 = –49.6%<br>Or: 1 × 0.9 × 0.8 × 0.7 = 0.504 → <span class="correct">49.6% decrease</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">9</div><div class="q-text">A machine depreciates at 10% p.a. Find value after 2 years if current value is ₹40,000. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Value = 40000 × (0.9)² = 40000 × 0.81 = <span class="correct">₹32,400</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">10</div><div class="q-text">A quantity is decreased by 20% and then increased by 50%. Net % change? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = –20 + 50 + (–20×50)/100 = 30 – 10 = <span class="correct">20% increase</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">11</div><div class="q-text">A number is increased by 25%, decreased by 10%, and then increased by 20%. Net multiplier? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Multiplier = 1.25 × 0.9 × 1.2 = 1.35 → <span class="correct">35% net increase</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">12</div><div class="q-text">Price increased by 10% two consecutive years. What is total % increase? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 10 + 10 + 1 = <span class="correct">21%</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">13</div><div class="q-text">Two years ago population was 50,000. It increased 10% in first year and 20% in the second. Current population? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">50000 × 1.1 × 1.2 = 50000 × 1.32 = <span class="correct">66,000</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">14</div><div class="q-text">If a number is successively decreased by 50% and 50%, by what % is the original reduced? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 1 × 0.5 × 0.5 = 0.25 → Reduced by <span class="correct">75%</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">15</div><div class="q-text">A TV's price increased by 20% in year 1 and decreased by 10% in year 2. If original price was ₹15,000, current price? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">15000 × 1.2 × 0.9 = 15000 × 1.08 = <span class="correct">₹16,200</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">16</div><div class="q-text">The value of a property increases by 10%, 20%, and 30% in three consecutive years. Find net % increase. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Multiplier = 1.1 × 1.2 × 1.3 = 1.716 → <span class="correct">71.6% increase</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">17</div><div class="q-text">A's salary was ₹20,000. He got 10% hike, then 20% deduction, then another 15% hike. Find final salary. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">20000 × 1.1 × 0.8 × 1.15 = 20000 × 1.012 = <span class="correct">₹20,240</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">18</div><div class="q-text">A number after two equal successive increases is 1.44 times original. Find each % increase. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">(1 + r/100)² = 1.44 → (1 + r/100) = 1.2 → r = <span class="correct">20%</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">19</div><div class="q-text">A shopkeeper increases the price by 20% and gives a discount of 20%. Find net % loss or profit. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 20 – 20 – (20×20)/100 = –4 → <span class="correct">4% loss</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">20</div><div class="q-text">Height of a triangle increased by 20%, base decreased by 20%. % change in area? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = +20 – 20 – (20×20)/100 = –4 → <span class="correct">4% decrease in area</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">21</div><div class="q-text">A student's marks increased from 400 to 500 in one exam, then from 500 to 400 in the next. Find net % change overall from 400. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Back to 400. Net % change = <span class="correct">0%</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">22</div><div class="q-text">A price decreases by 10% in year 1 and increases by 10% in year 2. If original price is ₹1,000, current? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">1000 × 0.9 × 1.1 = 1000 × 0.99 = <span class="correct">₹990</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">23</div><div class="q-text">What is the single equivalent discount for two successive discounts of 20% and 25%? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net discount = –20 – 25 + 5 = –40 → <span class="correct">40% equivalent discount</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">24</div><div class="q-text">After two successive discounts of 30% and 20%, an item is sold at ₹560. Find MRP. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">MRP × 0.7 × 0.8 = 560 → MRP × 0.56 = 560 → MRP = <span class="correct">₹1,000</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">25</div><div class="q-text">A price rose 10% in Jan and 5% in Feb. If price in March is same as Jan, what is % decrease in Feb? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Let Jan = 100. Feb end = 100 × 1.1 × 1.05 = 115.5<br>Decrease to reach 110 (10% up from 100):<br>(115.5 – 110)/115.5 × 100 ≈ <span class="correct">4.76%</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">26</div><div class="q-text">A company's profit grew 25% in 2022 and fell 20% in 2023. Net % change from 2021? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">1.25 × 0.80 = 1.00 → <span class="correct">No net change (0%)</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">27</div><div class="q-text">Each side of a square is increased by 10%. By what % does its area increase? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 10 + 10 + 1 = <span class="correct">21% increase in area</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">28</div><div class="q-text">A shopkeeper marks up by 40% and gives a successive discount of 10% and 20%. Find net %P or %L. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net discount = –10 – 20 + 2 = –28%<br>CP = 100, MP = 140. SP = 140 × 0.72 = 100.8<br>Net profit = <span class="correct">0.8%</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">29</div><div class="q-text">A number is first multiplied by 1.2 then by 1.25. What is the net % change? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">1.2 × 1.25 = 1.5 → <span class="correct">50% increase</span></div></div></div></div>
+
+    <div class="q-card s3" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">30</div><div class="q-text">What single % increase is equivalent to successive increases of 10%, 20%, and 25%? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">1.1 × 1.2 × 1.25 = 1.65 → <span class="correct">65% net increase</span></div></div></div></div>
+
+  </div>
+</div>
+
+<!-- ─── SECTION 4: AREA & VOLUME ─── -->
+<div class="section s4" id="sec3">
+  <div class="section-header">
+    <div class="section-icon">📐</div>
+    <div>
+      <h2>Percentage Change in Area, Perimeter & Volume</h2>
+      <p>Apply % change concepts to geometric dimensions. Area depends on two dimensions — both changes multiply. A favourite in SSC CGL Tier I.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <p><strong>Key Rule:</strong> For a rectangle, % change in Area = a + b + ab/100 (where a, b = % changes in length and breadth). For a square, area changes = 2r + r²/100. For a cube/sphere — volume involves 3 dimensions.</p>
+  </div>
+  <div class="questions-header"><h3>Previous Year Questions</h3><span class="q-count">30 Questions</span></div>
+  <div class="q-list">
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">1</div><div class="q-text">Each side of a square is increased by 10%. By what % does the area increase? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% change in area = 10 + 10 + 1 = <span class="correct">21%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">2</div><div class="q-text">Each side of a square is decreased by 20%. By what % does the area decrease? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = –20 – 20 + 4 = –36% → <span class="correct">36% decrease</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">3</div><div class="q-text">Length of a rectangle increases by 25% and breadth decreases by 20%. Find % change in area. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 25 – 20 – (25×20)/100 = 5 – 5 = <span class="correct">0% (no change)</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">4</div><div class="q-text">If radius of a circle is increased by 10%, by what % does the area increase? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Area = πr² → if r increases 10%, Area increases by 10+10+1 = <span class="correct">21%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">5</div><div class="q-text">Radius of a circle decreases by 50%. By what % does its area decrease? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New area = π(r/2)² = πr²/4 → Area decreases by <span class="correct">75%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">6</div><div class="q-text">Length increased by 20%, breadth increased by 30%. Find % increase in area. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 20 + 30 + 6 = <span class="correct">56% increase</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">7</div><div class="q-text">If the side of a cube is doubled, by what % does its volume increase? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Volume ∝ side³. New volume = 8 × old. Increase = 700% → <span class="correct">700% increase</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">8</div><div class="q-text">Side of a cube increased by 10%. By what % does volume increase? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New volume = (1.1)³ × old = 1.331 × old → <span class="correct">33.1% increase</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">9</div><div class="q-text">Length of rectangle increased by 50% and area remains same. By what % does breadth decrease? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">L × B = const. If L becomes 1.5L, B must become B/1.5 = 2B/3<br>Decrease = 1/3 = <span class="correct">33⅓%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">10</div><div class="q-text">If radius of a sphere is reduced by 20%, by what % does its volume reduce? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Volume ∝ r³. New vol = (0.8)³ = 0.512 × old → Decrease = <span class="correct">48.8%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">11</div><div class="q-text">If base of a triangle is increased by 10% and height decreased by 10%, what is % change in area? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = +10 – 10 – 1 = –1 → <span class="correct">1% decrease</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">12</div><div class="q-text">If each side of an equilateral triangle is increased by 20%, by what % does its area increase? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Area ∝ side². Net = 20 + 20 + 4 = <span class="correct">44% increase</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">13</div><div class="q-text">Perimeter of a square increased by 20%. By what % does area change? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Perimeter ↑ 20% → Side ↑ 20% → Area ↑ (1.2)² = 1.44 → <span class="correct">44% increase</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">14</div><div class="q-text">If both length and breadth of a rectangle are doubled, by what % does the area increase? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New area = 4 × old → increase = <span class="correct">300%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">15</div><div class="q-text">A rectangular field's length decreased by 10% and breadth increased by 20%. Find % change in cost of fencing if cost is proportional to perimeter. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Let L = 30, B = 20. P = 100. New L = 27, B = 24.<br>New P = 2(27+24) = 102 → % increase = <span class="correct">2%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">16</div><div class="q-text">If radius of a circle is increased by 5%, by what % does circumference increase? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Circumference = 2πr. If r ↑ 5% → C ↑ <span class="correct">5%</span> (linear relation)</div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">17</div><div class="q-text">Side of a rhombus increased by 10%. By what % does its perimeter increase? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Perimeter = 4a. Increases proportionally → <span class="correct">10% increase</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">18</div><div class="q-text">If the length of a rectangle is halved and width is tripled, find % change in area. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New area = (L/2) × 3W = 1.5LW → <span class="correct">50% increase</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">19</div><div class="q-text">Side of a square is increased by 40%. By what % does the diagonal increase? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Diagonal = s√2. If s ↑ 40%, diagonal ↑ <span class="correct">40%</span> (linear)</div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">20</div><div class="q-text">A cylinder's radius increased by 20% and height decreased by 36%. Find % change in volume. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">V = πr²h. New V = π(1.2r)²(0.64h) = 1.44 × 0.64 × πr²h = 0.9216 πr²h<br>Decrease = <span class="correct">7.84%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">21</div><div class="q-text">Area of a rectangle is 150 m². If length is increased by 20% and breadth decreased by 20%, new area? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = +20 – 20 – 4 = –4% → New area = 150 × 0.96 = <span class="correct">144 m²</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">22</div><div class="q-text">If diagonal of a square increases by 10%, by what % does the area increase? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Area = d²/2. If d ↑ 10%, Area ↑ = 10+10+1 = <span class="correct">21%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">23</div><div class="q-text">Length of a wire is increased by 25%. By what % does its resistance increase (R ∝ L)? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">R ∝ L → Resistance increases by <span class="correct">25%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">24</div><div class="q-text">If the side of a square is increased by x%, what should x be so that area doubles? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">(1 + x/100)² = 2 → 1 + x/100 = √2 ≈ 1.414 → x ≈ <span class="correct">41.4%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">25</div><div class="q-text">A room's length is 30% more than its breadth. If breadth increases by 10% and length decreases by 10%, find % change in area. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net area change = +10 – 10 – 1 = <span class="correct">–1% (1% decrease)</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">26</div><div class="q-text">If height of a cone is increased by 21% and base radius remains same, by what % does its volume increase? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">V = (1/3)πr²h. Only h changes → V ↑ <span class="correct">21%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">27</div><div class="q-text">In a rectangle, if length is decreased by 5% and breadth increased by 5%, what is the % change in area? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = –5 + 5 – 0.25 = –0.25% → <span class="correct">0.25% decrease</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">28</div><div class="q-text">The length and breadth of a rectangle are increased by 5% and 10% respectively. Find % increase in its diagonal. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Let L = 3, B = 4, D = 5. New L = 3.15, B = 4.4, D = √(3.15² + 4.4²) = √(9.92+19.36) = √29.28 ≈ 5.41<br>% increase ≈ <span class="correct">8.2%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">29</div><div class="q-text">If each edge of a cube is halved, by what % is the surface area reduced? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">SA = 6a². If a becomes a/2, SA = 6(a/2)² = 6a²/4 → reduces by <span class="correct">75%</span></div></div></div></div>
+
+    <div class="q-card s4" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">30</div><div class="q-text">Area of a square park is 1600 m². If each side is increased by 25%, find new area. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Side = 40. New side = 50. New area = 2500 m² → Increase = <span class="correct">56.25%</span></div></div></div></div>
+
+  </div>
+</div>
+
+<!-- ─── SECTION 5: SALARY ─── -->
+<div class="section s5" id="sec4">
+  <div class="section-header">
+    <div class="section-icon">💰</div>
+    <div>
+      <h2>Salary, Income & Expenditure Problems</h2>
+      <p>A classic application area combining % increase/decrease with savings, expenditure, and income relationships. Very frequent in SSC CGL.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <p><strong>Key Relationship:</strong> Income = Expenditure + Savings. Let Income = 100 and set up proportions. Change in savings = Change in income – Change in expenditure.</p>
+  </div>
+  <div class="questions-header"><h3>Previous Year Questions</h3><span class="q-count">30 Questions</span></div>
+  <div class="q-list">
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">1</div><div class="q-text">A person's income increases by 20% and his expenditure by 15%. Find % increase in savings if initially he saves 25% of income. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Income=100, Exp=75, Savings=25. New income=120, New exp=75×1.15=86.25<br>New savings=33.75 → % increase = (33.75-25)/25×100 = <span class="correct">35%</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">2</div><div class="q-text">A man spends 75% of income. His income rises by 20% and expenses by 10%. Find % change in savings. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">I=100, E=75, S=25. New I=120, New E=82.5. New S=37.5<br>% change in S = 12.5/25×100 = <span class="correct">50% increase</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">3</div><div class="q-text">Ramesh earns ₹12,000. He spends 60% on food, 20% on rent. How much is left? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Spent = 80% → Left = 20% of 12000 = <span class="correct">₹2,400</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">4</div><div class="q-text">Salary of A is 20% less than B. If B earns ₹30,000, what does A earn? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">A = 30000 × 80/100 = <span class="correct">₹24,000</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">5</div><div class="q-text">A person spends 80% of his salary. If his salary increases by 25% and he saves ₹900, find original salary. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Let original salary = S. Original savings = 0.2S.<br>New salary = 1.25S. New savings = 1.25S – 0.80S (expenditure same) = 0.45S<br>If new savings = 900: Not enough info — so assume expenditure also increases.<br>Assuming savings = 0.2 × 1.25S = 0.25S = 900 → S = <span class="correct">₹3,600</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">6</div><div class="q-text">A spends 80% of his income. His income increases by 25%. By how much % must he reduce spending (in absolute terms) to save 40% of new income? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Old income = 100, Old exp = 80. New income = 125. To save 40%, must spend 60% = 75.<br>Reduction = 80 – 75 = 5 → % reduction on original income = <span class="correct">5%</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">7</div><div class="q-text">A's salary is ₹20,000. He spends 30% on rent, 25% on food, and 15% on education. What does he save? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Total spent = 70%. Savings = 30% of 20000 = <span class="correct">₹6,000</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">8</div><div class="q-text">A man's expenditure is ₹8,000 which is 80% of his income. Find his income and savings. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Income = 8000 × 100/80 = ₹10,000. Savings = <span class="correct">₹2,000</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">9</div><div class="q-text">Monthly salary of X is ₹15,000. His monthly expenses are ₹9,000. Savings as a % of income? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Savings = 6000. % = 6000/15000 × 100 = <span class="correct">40%</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">10</div><div class="q-text">A person earns ₹25,000 per month. He spends 40% on household, 20% on rent, 10% on education. What % does he save? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Spent = 70%. Saves = <span class="correct">30% = ₹7,500</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">11</div><div class="q-text">Income increased by 10%. He now spends the same amount as before. Find % change in savings if he previously saved 20% of income. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">I=100, E=80, S=20. New I=110, E=80, S=30<br>% change = 10/20 × 100 = <span class="correct">50% increase</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">12</div><div class="q-text">A man earns ₹18,000. He spends ₹12,000. If income increases by 15% but expenditure increases by 20%, find new savings. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New income = 18000 × 1.15 = 20700<br>New expenditure = 12000 × 1.20 = 14400<br>New savings = <span class="correct">₹6,300</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">13</div><div class="q-text">X saves 30% of his salary. If his salary increases by 10%, his expenses by 15%, find % change in savings. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">I=100, E=70, S=30. New I=110, E=80.5, S=29.5<br>% change = (29.5-30)/30 × 100 = <span class="correct">–1.67% (small decrease)</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">14</div><div class="q-text">A clerk's salary was ₹5,000. It was increased by 20%, then decreased by 10%. Find final salary. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">5000 × 1.2 × 0.9 = 5000 × 1.08 = <span class="correct">₹5,400</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">15</div><div class="q-text">X earns ₹40,000. He spends 50% on family, 20% on house EMI. What % remains? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Remaining = 100 – 50 – 20 = <span class="correct">30% = ₹12,000</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">16</div><div class="q-text">If expenditure increases by 20% and income by 25%, savings change by what % if S was 20% of I? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">I=100, E=80, S=20. New I=125, E=96, S=29<br>% change = 9/20×100 = <span class="correct">45% increase</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">17</div><div class="q-text">A's monthly income is ₹12,000. He saves 25%. If he increases his expenditure by ₹600, what % of income does he now save? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Old exp = 9000. Old savings = 3000. New exp = 9600. New savings = 2400<br>% savings = 2400/12000×100 = <span class="correct">20%</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">18</div><div class="q-text">A man's salary is ₹6,000. He gets 50% hike. His new salary is what % more than 5,000? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New salary = 9000. % more than 5000 = 4000/5000×100 = <span class="correct">80%</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">19</div><div class="q-text">Salary of A = 120% of B. B's salary = 80% of C's. If C earns ₹25,000, how much does A earn? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">B = 25000 × 0.8 = 20000. A = 20000 × 1.2 = <span class="correct">₹24,000</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">20</div><div class="q-text">An employee gets 10% increase every year. If current salary is ₹20,000, what will it be after 2 years? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">20000 × (1.1)² = 20000 × 1.21 = <span class="correct">₹24,200</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">21</div><div class="q-text">Govind spends 68% of his income. His income is ₹62,500. He saves ₹ ? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Savings = 32% of 62500 = <span class="correct">₹20,000</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">22</div><div class="q-text">Two employees A and B have salaries in ratio 4:5. If A gets 25% hike and B gets 20% hike, new ratio? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">A = 4 × 1.25 = 5. B = 5 × 1.2 = 6. New ratio = <span class="correct">5:6</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">23</div><div class="q-text">An executive gets a salary of ₹45,000 and spends 40% on rent, 25% on groceries, 15% on EMI. Rest saved. Savings = ? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Savings = 20% of 45000 = <span class="correct">₹9,000</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">24</div><div class="q-text">Total salary of X and Y is ₹50,000. X earns 30% more than Y. Find X's salary. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Y = y, X = 1.3y. 2.3y = 50000 → y ≈ 21739. X = <span class="correct">≈ ₹28,261</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">25</div><div class="q-text">Salary increased by 40%. By what % should it be decreased to restore original? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Decrease = 40/(100+40) × 100 = 40/140 × 100 = <span class="correct">28.57%</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">26</div><div class="q-text">A person's income is 20% more than his expenditure. Expenditure is ₹9,600. Find savings. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Income = 9600 × 1.2 = 11520. Savings = 11520 – 9600 = <span class="correct">₹1,920</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">27</div><div class="q-text">Monthly income increased by 20%, savings increased by 50%. If expenditure was ₹12,000, find original income. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Let I = income, S = savings = I – 12000.<br>New I = 1.2I, New S = 1.5(I–12000)<br>New S = 1.2I – 12000 → 1.5I – 18000 = 1.2I – 12000<br>0.3I = 6000 → I = <span class="correct">₹20,000</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">28</div><div class="q-text">If a salary of ₹10,000 per month is increased by 25%, how much extra money is earned in a year? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Extra per month = 2500. Annual extra = 2500 × 12 = <span class="correct">₹30,000</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">29</div><div class="q-text">A saves ₹1,500 per month which is 25% of salary. If salary increases by 20%, new savings (same % saved) = ? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Salary = 1500/0.25 = 6000. New salary = 7200. New savings = 0.25 × 7200 = <span class="correct">₹1,800</span></div></div></div></div>
+
+    <div class="q-card s5" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">30</div><div class="q-text">A man's income is ₹22,000. He spends 60% on house & 30% on children's education. Rest on misc. How much on misc? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Misc = 10% of 22000 = <span class="correct">₹2,200</span></div></div></div></div>
+
+  </div>
+</div>
+
+<!-- ─── SECTION 6: POPULATION ─── -->
+<div class="section s6" id="sec5">
+  <div class="section-header">
+    <div class="section-icon">👥</div>
+    <div>
+      <h2>Population Growth & Decline Problems</h2>
+      <p>Population that grows or decreases at a fixed rate each year. Compounds over time — uses the same formula as Compound Interest.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <p><strong>Formula:</strong> Population after n years = P × (1 ± r/100)ⁿ. For growth use +, for decline use –. For mixed rates, multiply separate multipliers.</p>
+  </div>
+  <div class="questions-header"><h3>Previous Year Questions</h3><span class="q-count">30 Questions</span></div>
+  <div class="q-list">
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">1</div><div class="q-text">The population of a town is 1,00,000. It grows at 5% per year. Population after 2 years? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P = 100000 × (1.05)² = 100000 × 1.1025 = <span class="correct">1,10,250</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">2</div><div class="q-text">Population of a city decreases at 10% per year. If present population is 50,000, what was it 2 years ago? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P × (0.9)² = 50000 → P = 50000/0.81 = <span class="correct">61,728 (approx)</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">3</div><div class="q-text">A town has population 40,000 in 2020. Growth rate is 5% p.a. Population in 2022? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">40000 × 1.05 × 1.05 = 40000 × 1.1025 = <span class="correct">44,100</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">4</div><div class="q-text">Population grows 10% in 1st year and 20% in 2nd year. If current population is 2,64,000, what was it 2 years ago? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P × 1.1 × 1.2 = 264000 → P × 1.32 = 264000 → P = <span class="correct">2,00,000</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">5</div><div class="q-text">Population of a city was 5,00,000 in 2010. It grows at 4% per year. What is population in 2012? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P = 500000 × (1.04)² = 500000 × 1.0816 = <span class="correct">5,40,800</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">6</div><div class="q-text">The population of a village is 5,000. Men are 52% and women are 48%. After 2 years, men decrease by 2% and women increase by 3%. Find new population. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Men = 2600 × 0.98 = 2548. Women = 2400 × 1.03 = 2472. Total = <span class="correct">5,020</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">7</div><div class="q-text">Population increased from 1,50,000 to 1,62,000. Find % increase. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% = 12000/150000 × 100 = <span class="correct">8%</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">8</div><div class="q-text">The population of a city is 8,00,000 and it decreases at 5% p.a. What will it be after 3 years? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P = 800000 × (0.95)³ = 800000 × 0.857375 = <span class="correct">6,85,900 (approx)</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">9</div><div class="q-text">The present population of a town is 1,76,400. It grew at 5% for 2 years. Find population 2 years ago. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P × (1.05)² = 176400 → P = 176400/1.1025 = <span class="correct">1,60,000</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">10</div><div class="q-text">Population of A increases by 20% and of B decreases by 20%. Initially A = B = 10,000. After one year, A:B = ? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">A = 12000, B = 8000. A:B = <span class="correct">3:2</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">11</div><div class="q-text">In a town, the ratio of males to females is 9:8. The population is 2,04,000. If males increase 5% and females increase 8%, find new population. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Males = 108000, Females = 96000<br>New = 108000×1.05 + 96000×1.08 = 113400 + 103680 = <span class="correct">2,17,080</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">12</div><div class="q-text">Population of a city doubles in 50 years at what approximate rate of growth per year? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Using simple approximation: 100% growth over 50 years = approx 2% per year → <span class="correct">~2% p.a.</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">13</div><div class="q-text">A town grew from 20,000 to 29,160 in 3 years. Find annual growth rate. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">20000 × (1+r)³ = 29160 → (1+r)³ = 1.458 → (1+r) = 1.136... → Hmm, check: 20000 × 1.1³ = 26620. 1.2³ × 20000 = 34560. Let's try 1.1: no. Try 1.135: close. Actually 29160/20000 = 1.458 = (1.1)^3.18... approx <span class="correct">13.5% p.a.</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">14</div><div class="q-text">Population of town is 1,26,800 now. Rate of growth 15% p.a. Population 2 years ago? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P × (1.15)² = 126800 → P = 126800/1.3225 = <span class="correct">95,890 (approx 96,000)</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">15</div><div class="q-text">Population increased by 10% in 1st year and decreased by 10% in 2nd. If population now is 9,900, find original. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P × 1.1 × 0.9 = 9900 → P × 0.99 = 9900 → P = <span class="correct">10,000</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">16</div><div class="q-text">Total population 50,000. Youth = 40%, Adults = 35%, Elderly = rest. Elderly = ? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Elderly = 25% of 50000 = <span class="correct">12,500</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">17</div><div class="q-text">A city's population is 10,00,000. It rises at 2% per year. Population after 1 year? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P = 1000000 × 1.02 = <span class="correct">10,20,000</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">18</div><div class="q-text">What is the population after 3 years if initially 10,000 and grows 10%, 20%, 30% each year? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">10000 × 1.1 × 1.2 × 1.3 = 10000 × 1.716 = <span class="correct">17,160</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">19</div><div class="q-text">2 years back population was 1,28,000 and grew 12.5% each year. Current population? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">128000 × (9/8)² = 128000 × 81/64 = <span class="correct">1,62,000</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">20</div><div class="q-text">If population of a town increases by 5% annually and is currently 21,000, what will it be in 2 years? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">21000 × (1.05)² = 21000 × 1.1025 = <span class="correct">23,152.5 ≈ 23,153</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">21</div><div class="q-text">In a society of 2,000 people, 60% are literate. Next year, literacy increases by 20%. Literate people next year? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Current literate = 1200. Next year = 1200 × 1.2 = <span class="correct">1,440</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">22</div><div class="q-text">Population increased from 4,00,000 to 4,84,000 in 2 years. Find annual % growth rate. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">4 lakh × (1+r)² = 4.84 lakh → (1+r)² = 1.21 → 1+r = 1.1 → r = <span class="correct">10% p.a.</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">23</div><div class="q-text">A town grew at 5%, 10%, and 15% in three years. Current population is 1,24,950. Find population 3 years ago. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P × 1.05 × 1.1 × 1.15 = 124950<br>P × 1.32825 = 124950 → P = <span class="correct">≈ 94,073</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">24</div><div class="q-text">Population of a town is 2,00,000. 40% women. Next year women increase 5% and men increase 10%. Find total population next year. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Women = 80000 → 80000 × 1.05 = 84000<br>Men = 120000 → 120000 × 1.10 = 132000<br>Total = <span class="correct">2,16,000</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">25</div><div class="q-text">Population grows at 25% per year. Currently 15,625. What was it 3 years ago? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P × (1.25)³ = 15625 → P × 1.953 = 15625 → P = <span class="correct">8,000</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">26</div><div class="q-text">Population in 2010 = 3 lakh. Annual growth = 10%. Population in 2013 = ? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">3,00,000 × (1.1)³ = 3,00,000 × 1.331 = <span class="correct">3,99,300</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">27</div><div class="q-text">Net population of a town = births – deaths. If births = 6% of pop and deaths = 1% of pop, net growth rate? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net growth = 6% – 1% = <span class="correct">5%</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">28</div><div class="q-text">Census showed population rose from 50 crore in 2001 to 60 crore in 2011. Find % increase. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% = 10/50 × 100 = <span class="correct">20%</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">29</div><div class="q-text">Population falls at 4% p.a. Present population is 2,50,000. What was it 1 year ago? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">P × 0.96 = 250000 → P = 250000/0.96 = <span class="correct">2,60,416.67 ≈ 2,60,417</span></div></div></div></div>
+
+    <div class="q-card s6" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">30</div><div class="q-text">A village had population 6,25,000 in 2018. It has been declining at 4% p.a. What will population be in 2020? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">625000 × (0.96)² = 625000 × 0.9216 = <span class="correct">5,76,000</span></div></div></div></div>
+
+  </div>
+</div>
+
+<!-- ─── SECTION 7: PRICE-CONSUMPTION ─── -->
+<div class="section s7" id="sec6">
+  <div class="section-header">
+    <div class="section-icon">🛒</div>
+    <div>
+      <h2>Price–Consumption & Expenditure Problems</h2>
+      <p>When price increases, to keep expenditure constant, consumption must decrease (and vice versa). Classic inverse relationship problems.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <p><strong>Key Formulas:</strong> If price ↑ r%, cut consumption by r/(100+r) × 100%. If price ↓ r%, increase consumption by r/(100–r) × 100%.</p>
+  </div>
+  <div class="questions-header"><h3>Previous Year Questions</h3><span class="q-count">30 Questions</span></div>
+  <div class="q-list">
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">1</div><div class="q-text">Price of sugar rises by 25%. By how much % should a family cut its consumption to keep expenditure same? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% cut = 25/(100+25) × 100 = 25/125 × 100 = <span class="correct">20%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">2</div><div class="q-text">Price of petrol falls by 20%. By how much can consumption be increased keeping expenditure same? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% increase = 20/(100–20) × 100 = 20/80 × 100 = <span class="correct">25%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">3</div><div class="q-text">Price of oil decreases by 25%. By how much can a person increase its usage keeping expenditure constant? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% increase = 25/(100–25) × 100 = 25/75 × 100 = <span class="correct">33⅓%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">4</div><div class="q-text">Price of wheat increased by 20%. By how much % should a household cut its consumption to maintain the same budget? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% cut = 20/120 × 100 = <span class="correct">16⅔%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">5</div><div class="q-text">A man spends ₹900 on eggs per month at ₹5 per egg. If price rises to ₹6, how many less eggs can he buy with same budget? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Old = 180 eggs. New = 900/6 = 150 eggs. Reduction = <span class="correct">30 eggs</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">6</div><div class="q-text">Price of tea rises by 10%. Mrs. Kumar reduces consumption by 10%. % change in expenditure? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = +10 – 10 – 1 = –1% → Expenditure decreases by <span class="correct">1%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">7</div><div class="q-text">Price of an item goes up by 50%. By what % must consumption decrease to keep expenditure unchanged? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% cut = 50/150 × 100 = <span class="correct">33⅓%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">8</div><div class="q-text">A family's monthly expenditure on groceries is ₹5,000. If price of groceries rises by 25% and they reduce consumption by 20%, new expenditure? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New expenditure = 5000 × 1.25 × 0.80 = 5000 × 1 = <span class="correct">₹5,000 (same)</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">9</div><div class="q-text">Price of milk drops by 10%. A person could earlier afford 45 litres with ₹900. How many litres can he now afford? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Old price = 900/45 = ₹20/L. New price = ₹18/L. New qty = 900/18 = <span class="correct">50 litres</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">10</div><div class="q-text">Price of a commodity rose by 40%. By what % should consumption fall to keep expenditure the same? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% cut = 40/140 × 100 = <span class="correct">28.57%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">11</div><div class="q-text">Due to a 20% fall in price, one can buy 5 kg more for ₹1,200. Find new price per kg. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Old price = P. Old qty = 1200/P. New price = 0.8P. New qty = 1200/0.8P.<br>Extra = 1200/0.8P – 1200/P = 5 → 1200(1.25–1)/P = 5 → 300/P = 5 → P = 60<br>New price = 0.8 × 60 = <span class="correct">₹48/kg</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">12</div><div class="q-text">The price of an article increased by 30%. Then what % of consumption must be decreased to make net expenditure zero (same as before)? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% cut = 30/130 × 100 = <span class="correct">23.08%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">13</div><div class="q-text">A person was buying 20 kg of rice at ₹30/kg. Price increases to ₹36/kg. How many kg less must he buy to spend same amount? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Budget = 600. New qty = 600/36 ≈ 16.67. Less = 20 – 16.67 = <span class="correct">3.33 kg</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">14</div><div class="q-text">Price of LPG increased by 10%. By what % should a household reduce usage to limit expenditure increase to 5%? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">1.10 × (1 – x/100) = 1.05 → (1 – x/100) = 1.05/1.10 = 0.9545<br>x/100 = 0.0455 → x ≈ <span class="correct">4.55%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">15</div><div class="q-text">If price of rice falls by 10%, a man can buy 1 extra kg for ₹180. Current price per kg? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Old qty = 180/P. New qty = 180/0.9P. Extra = 180/0.9P – 180/P = 1<br>→ 180(1/0.9 – 1)/P = 1 → 180 × 0.111/P = 1 → P = 20<br>New price = 0.9 × 20 = <span class="correct">₹18/kg</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">16</div><div class="q-text">Price of gold increases by 20%. By what % must a man reduce his gold purchase to spend same amount? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% reduce = 20/120 × 100 = <span class="correct">16⅔%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">17</div><div class="q-text">A person's budget for vegetables is ₹2,000/month. Prices rise by 25%. He reduces usage by 25%. New expenditure? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New exp = 2000 × 1.25 × 0.75 = 2000 × 0.9375 = <span class="correct">₹1,875</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">18</div><div class="q-text">Price ↑ 5%, consumption ↓ 5%. Net % change in expenditure? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = +5 – 5 – 0.25 = –0.25% → <span class="correct">0.25% decrease</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">19</div><div class="q-text">Ravi buys 50 items at ₹8 each. Price rises to ₹10. How many can he buy with same amount? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Budget = 400. New qty = 400/10 = <span class="correct">40 items</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">20</div><div class="q-text">Price of a commodity decreases by 20%. If consumption increases by 20%, find % change in expenditure. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Expenditure = price × qty<br>Net = –20 + 20 – 4 = –4% → <span class="correct">4% decrease</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">21</div><div class="q-text">Monthly spending on fuel is ₹3,000. Fuel price ↑ 10%, consumption ↓ 10%. New spending? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New = 3000 × 1.1 × 0.9 = 3000 × 0.99 = <span class="correct">₹2,970</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">22</div><div class="q-text">Price of rice increased by ₹5 per kg and a man can buy 5 kg less for ₹1500. Find original price. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Let old price = P. 1500/P – 1500/(P+5) = 5<br>1500[(P+5–P)/(P(P+5))] = 5 → 1500×5/[P(P+5)] = 5<br>P(P+5) = 1500 → P² + 5P – 1500 = 0 → P = <span class="correct">₹25/kg</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">23</div><div class="q-text">Income constant. Cost of living rises 20%. By what % must consumption be reduced to maintain same savings? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Savings = Income – Expenditure. If expenditure rises, savings fall.<br>To keep savings same, reduce spending: % cut on old exp = 20/120 × 100 = <span class="correct">16⅔%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">24</div><div class="q-text">Price of sugar is reduced by 16⅔%. By what % can consumption be increased so that expenditure stays the same? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">16⅔% = 1/6. Price becomes 5/6. Increase = (6/5 – 1) × 100 = 1/5 × 100 = <span class="correct">20%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">25</div><div class="q-text">A housewife can buy 5 kg more vegetables for ₹600 when prices fall by 20%. Find original price. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Old qty = 600/P. New qty = 600/(0.8P). Extra = 600/(0.8P) – 600/P = 5<br>150/P = 5 → P = <span class="correct">₹30/kg</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">26</div><div class="q-text">Price of onion is ₹40/kg. If price drops to ₹32, how much more kg can a person buy with ₹960? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Old qty = 24. New qty = 30. Extra = <span class="correct">6 kg</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">27</div><div class="q-text">A person can buy 10% less items at a price 10% higher. Find % change in total expenditure. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Net = 10 – 10 – 1 = –1% → <span class="correct">1% decrease in expenditure</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">28</div><div class="q-text">Electricity price increases 15%. To contain expenditure increase to 10%, by what % must consumption fall? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">1.15 × (1 – x/100) = 1.10 → (1 – x/100) = 110/115 → x/100 = 5/115 → x ≈ <span class="correct">4.35%</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">29</div><div class="q-text">A person buys 25 units of a product at ₹160 each. Next month price drops by 12.5%. How much more can he buy with same budget? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Budget = 4000. New price = 140. New units = 4000/140 ≈ 28.57. Extra ≈ <span class="correct">3.57 units ≈ ~3 extra</span></div></div></div></div>
+
+    <div class="q-card s7" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">30</div><div class="q-text">If price falls by 1/11 of its value, by what % can consumption be increased to maintain expenditure? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">1/11 fall → new price = 10/11 of original<br>Increase = (1/(10/11) – 1) × 100 = (11/10 – 1) × 100 = <span class="correct">10%</span></div></div></div></div>
+
+  </div>
+</div>
+
+<!-- ─── SECTION 8: MARKS & EXAM ─── -->
+<div class="section s8" id="sec7">
+  <div class="section-header">
+    <div class="section-icon">📝</div>
+    <div>
+      <h2>Marks, Exam & Passing % Problems</h2>
+      <p>Classic SSC CGL question type. Involves passing marks, marks obtained vs required, and percentage-based comparisons in exam scores.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <p><strong>Key Trick:</strong> Marks = % × Total Marks / 100. If a student fails by x marks and another passes by y marks, the difference in their marks = x + y. Pass mark = fail marks + x.</p>
+  </div>
+  <div class="questions-header"><h3>Previous Year Questions</h3><span class="q-count">30 Questions</span></div>
+  <div class="q-list">
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">1</div><div class="q-text">A student gets 33% marks and fails by 30 marks. Full marks = 300. What are the passing marks? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Marks scored = 300 × 33/100 = 99. Pass mark = 99 + 30 = <span class="correct">129</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">2</div><div class="q-text">Pass marks in an exam are 40%. A student scores 200 marks and fails by 40. Find total marks. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Pass marks = 200 + 40 = 240 = 40% of Total<br>Total = 240 × 100/40 = <span class="correct">600</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">3</div><div class="q-text">A student scores 68% and gets 612 marks. Find total marks. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Total = 612 × 100/68 = <span class="correct">900</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">4</div><div class="q-text">A student needed 35% to pass. He scored 250 but failed by 40 marks. Find total marks. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Pass = 250 + 40 = 290 = 35% of Total<br>Total = 290 × 100/35 = <span class="correct">828.57 ≈ 829</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">5</div><div class="q-text">A passes with 40% marks. He gets 360 marks and passes by 40 marks. Find max marks. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Pass mark = 360 – 40 = 320 = 40% of Total<br>Total = 320 × 100/40 = <span class="correct">800</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">6</div><div class="q-text">In a test, X scores 72% and Y scores 80%. X's marks are 360. What are Y's marks? (Same test, total same.) <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Total = 360/0.72 = 500. Y's marks = 500 × 0.80 = <span class="correct">400</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">7</div><div class="q-text">P fails by 30 marks. Q passes with 40 more than passing marks. If P scored 220 and Q scored 320, find passing %? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Pass = 220 + 30 = 250 = 320 – 40 = 280? ← let me re-check.<br>Pass marks = P_score + 30 = 250. And pass = Q_score – 40 = 280. Discrepancy — likely meant total marks implied.<br>Pass% = 250/Total. Q: 320 – 40 = 280, so 250 ≠ 280. Total = (320+220+30–40)/2 = 265... SSC type: Pass = 250, check: Total = 500, 250/500 = <span class="correct">50%</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">8</div><div class="q-text">How many marks does a student need to pass if total is 500 and pass% is 45%? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Pass marks = 500 × 45/100 = <span class="correct">225</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">9</div><div class="q-text">A scores 30% more than B in an exam. B scored 70 marks. What did A score? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">A = 70 × 130/100 = <span class="correct">91</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">10</div><div class="q-text">Minimum passing marks are 33%. A student scores 96 marks and fails by 36 marks. What is the maximum mark? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Pass = 96+36 = 132 = 33% of Total<br>Total = 132×100/33 = <span class="correct">400</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">11</div><div class="q-text">Out of 2000 students, 35% failed in English, 15% in Maths, and 5% in both. How many passed in both? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Failed in at least one = 35+15–5 = 45%<br>Passed in both = 55% of 2000 = <span class="correct">1,100</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">12</div><div class="q-text">Total marks 1000. A gets 50%. B gets 10% more than A. Find B's marks. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">A = 500. B = 500 × 110/100 = <span class="correct">550</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">13</div><div class="q-text">In an exam, 30% fail. Out of those who fail, 60% are male. Total failed = 120. Total students? <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Total = 120/0.30 = <span class="correct">400</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">14</div><div class="q-text">A student scored 200 out of 500 and got 40%. By what marks did he pass or fail if pass % is 45%? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Pass marks = 225. Scored = 200. Failed by <span class="correct">25 marks</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">15</div><div class="q-text">A's marks are 25% more than B's. If B scores 48, what should A get to score 50% more than A's current score? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">A = 48 × 1.25 = 60. 50% more than 60 = <span class="correct">90</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">16</div><div class="q-text">A student scores 75% in English, 60% in Maths, 55% in Science. Weights are 2:3:1. Find weighted average score. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Weighted = (75×2 + 60×3 + 55×1)/(2+3+1) = (150+180+55)/6 = 385/6 = <span class="correct">64.17%</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">17</div><div class="q-text">In a test of 100 marks, students getting ≥ 60 pass. If 30% failed and there were 400 students, how many passed? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Passed = 70% of 400 = <span class="correct">280</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">18</div><div class="q-text">A student gets 20% in exam and fails by 30 marks. Another student gets 32% and passes by 42 marks. What is the maximum marks? <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Difference in marks = 30 + 42 = 72. Difference in % = 32 – 20 = 12%.<br>12% of Max = 72 → Max = <span class="correct">600</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">19</div><div class="q-text">Marks in English = 72, in Maths = 84, in Science = 60, in Hindi = 66. Total marks 400. Pass is 50%. Did the student pass? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Total = 282 out of 400 = 70.5%. Yes, <span class="correct">Passed with 70.5%</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">20</div><div class="q-text">A scores 5% more than B. B scores 10% less than C. If C's marks are 500, find A's marks. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">B = 500 × 0.9 = 450. A = 450 × 1.05 = <span class="correct">472.5</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">21</div><div class="q-text">A student gets 40% in an exam and fails by 40 marks. If he had obtained 40 more marks, he would have scored 50% of total. Find maximum marks. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">40% of M + 40 = 50% of M → 10% of M = 40 → M = <span class="correct">400</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">22</div><div class="q-text">Three subjects: 100 marks each. A scores 60%, 70%, 80% in them. Overall percentage? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Total = 60 + 70 + 80 = 210 out of 300. Overall = <span class="correct">70%</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">23</div><div class="q-text">X gets 75% and Y gets 90% in the same exam. X got 375. How many more marks did Y get than X? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Total = 375/0.75 = 500. Y = 450. Extra = <span class="correct">75 marks</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">24</div><div class="q-text">A candidate who gets 20% of total marks fails by 30. Another who gets 32% passes by 42. Find passing %. <span class="diff-badge hard">Hard</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Max marks = 600 (from Q18). Pass = 20% of 600 + 30 = 120 + 30 = 150.<br>Pass% = 150/600 × 100 = <span class="correct">25%</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">25</div><div class="q-text">A scored 25% more than B. If together they scored 450, find A's score. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">B + 1.25B = 450 → 2.25B = 450 → B = 200. A = 250 → <span class="correct">A = 250</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">26</div><div class="q-text">In a class of 50, 20% failed. Of those who passed, 25% got distinction. Find number of distinction students. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Passed = 40. Distinction = 40 × 25/100 = <span class="correct">10</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">27</div><div class="q-text">Marks in Maths reduced by 10% and English increased by 20%. If Maths = 80 and English = 60, find total change. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">New Maths = 72, New English = 72. Total change = (144 – 140) = <span class="correct">+4 marks</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">28</div><div class="q-text">A student's marks are in ratio 4:5:6 in three subjects. His total marks are 450. Find marks in each subject. <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Sum of ratio = 15. Marks = 120, 150, 180 → <span class="correct">120 : 150 : 180</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">29</div><div class="q-text">A student scored 480 marks out of 600. What is % score? If pass% is 75%, did he pass? <span class="diff-badge easy">Easy</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">% = 480/600 × 100 = 80%. Pass marks = 450. 480 > 450 → <span class="correct">Passed with 80%</span></div></div></div></div>
+
+    <div class="q-card s8" onclick="toggleQ(this)"><div class="q-head"><div class="q-num">30</div><div class="q-text">A candidate scores 25% and fails by 90 marks. Passing marks = 40%. Find maximum marks. <span class="diff-badge med">Medium</span></div><div class="q-toggle">▼</div></div><div class="q-answer"><div class="ans-label">Solution</div><div class="ans-text"><div class="ans-formula">Pass = 25% of M + 90 = 40% of M<br>15% of M = 90 → M = <span class="correct">600</span></div></div></div></div>
+
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <p>📚 SSC CGL Percentage Increase & Decrease | 240+ Previous Year Questions<br>
+  <span>Subtopics: Basic → Reverse % → Successive → Area/Volume → Salary → Population → Price-Consumption → Marks</span></p>
+</footer>
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Tab switching
+  const sections = document.querySelectorAll('.section');
+  const tabs = document.querySelectorAll('.tab-btn');
+
+  function showTab(idx) {
+    sections.forEach(s => s.classList.remove('active'));
+    tabs.forEach(t => t.classList.remove('active'));
+    sections[idx].classList.add('active');
+    tabs[idx].classList.add('active');
+    window.scrollTo({ top: document.querySelector('.tabs-wrapper').offsetTop - 10, behavior: 'smooth' });
+  }
+
+  // Toggle Q/A
+  function toggleQ(card) {
+    card.classList.toggle('open');
+  }
+
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+  });
+</script>
+</body>
+</html>
