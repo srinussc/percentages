@@ -1,150 +1,301 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SSC CGL Mastery Hub</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
-    min-height:100vh;
-    color:white;
+background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+color:white;
+overflow-x:hidden;
 }
 
-header{
-    text-align:center;
-    padding:50px 20px;
+body::before{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:#0ea5e9;
+filter:blur(220px);
+opacity:.15;
+top:-250px;
+right:-200px;
+z-index:-1;
 }
 
-header h1{
-    font-size:3rem;
-    font-weight:700;
-    margin-bottom:10px;
+body::after{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#8b5cf6;
+filter:blur(220px);
+opacity:.15;
+bottom:-250px;
+left:-200px;
+z-index:-1;
 }
 
-header p{
-    color:#cbd5e1;
-    font-size:1.1rem;
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+backdrop-filter:blur(15px);
+position:sticky;
+top:0;
+background:rgba(2,6,23,.8);
+z-index:100;
 }
+
+.logo{
+font-size:1.6rem;
+font-weight:700;
+color:#38bdf8;
+}
+
+.menu{
+display:flex;
+gap:25px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+.menu a:hover{
+color:#38bdf8;
+}
+
+/* HERO */
 
 .hero{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
+min-height:85vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px 20px;
+}
+
+.hero-content h1{
+font-size:4rem;
+font-weight:800;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero-content span{
+background:linear-gradient(90deg,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-content p{
+max-width:700px;
+margin:auto;
+color:#cbd5e1;
+font-size:1.2rem;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#0ea5e9;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+background:#0284c7;
+}
+
+/* STATS */
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
 }
 
 .stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    margin-bottom:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-bottom:60px;
 }
 
 .stat-card{
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
-    transition:.3s;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:25px;
+text-align:center;
+transition:.3s;
 }
 
 .stat-card:hover{
-    transform:translateY(-5px);
+transform:translateY(-8px);
 }
 
 .stat-card h2{
-    font-size:2rem;
-    color:#38bdf8;
+font-size:2rem;
+color:#38bdf8;
+margin-bottom:10px;
 }
 
 .stat-card p{
-    color:#cbd5e1;
+color:#cbd5e1;
 }
 
+/* FEATURES */
+
+.section-title{
+text-align:center;
+font-size:2.2rem;
+margin-bottom:40px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-bottom:70px;
+}
+
+.feature{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:20px;
+text-align:center;
+border:1px solid rgba(255,255,255,.08);
+font-size:1.1rem;
+transition:.3s;
+}
+
+.feature:hover{
+transform:translateY(-5px);
+}
+
+/* TOPICS */
+
 .topics{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+margin-bottom:80px;
 }
 
 .card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:25px;
-    overflow:hidden;
-    transition:.4s;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:30px;
+overflow:hidden;
+transition:.4s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 40px rgba(0,0,0,.3);
+transform:translateY(-10px);
+box-shadow:0 25px 50px rgba(0,0,0,.35);
 }
 
 .card-header{
-    padding:25px;
-    text-align:center;
-}
-
-.card-header h2{
-    margin-top:10px;
-}
-
-.card-body{
-    padding:20px;
-    color:#cbd5e1;
-    text-align:center;
-}
-
-.card a{
-    display:inline-block;
-    margin-top:15px;
-    text-decoration:none;
-    background:#0ea5e9;
-    color:white;
-    padding:12px 25px;
-    border-radius:50px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.card a:hover{
-    background:#0284c7;
+padding:35px;
+text-align:center;
 }
 
 .percentages{
-    background:linear-gradient(135deg,#0ea5e9,#2563eb);
+background:linear-gradient(135deg,#0ea5e9,#2563eb);
 }
 
-.profit{
-    background:linear-gradient(135deg,#10b981,#059669);
+.increase{
+background:linear-gradient(135deg,#10b981,#059669);
 }
 
 .ratio{
-    background:linear-gradient(135deg,#f59e0b,#ea580c);
+background:linear-gradient(135deg,#f59e0b,#ea580c);
 }
 
 .icon{
-    font-size:55px;
+font-size:60px;
+margin-bottom:15px;
 }
 
+.card-body{
+padding:25px;
+}
+
+.card-body ul{
+list-style:none;
+margin-bottom:20px;
+}
+
+.card-body ul li{
+padding:8px 0;
+color:#cbd5e1;
+}
+
+.card-body a{
+display:inline-block;
+background:#0ea5e9;
+padding:12px 25px;
+border-radius:50px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+.card-body a:hover{
+background:#0284c7;
+}
+
+/* FOOTER */
+
 footer{
-    text-align:center;
-    margin-top:60px;
-    padding:20px;
-    color:#94a3b8;
+padding:40px;
+text-align:center;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:2.5rem;
+}
+
+.menu{
+display:none;
+}
+
 }
 
 </style>
@@ -152,87 +303,177 @@ footer{
 
 <body>
 
-<header>
-    <h1>🎯 SSC CGL Mastery Hub</h1>
-    <p>Complete Quantitative Aptitude Preparation Portal</p>
-</header>
+<nav>
+<div class="logo">🎯 SSC Mastery Hub</div>
 
-<div class="hero">
+<div class="menu">
+<a href="#">Home</a>
+<a href="#features">Features</a>
+<a href="#topics">Topics</a>
+</div>
+</nav>
 
-    <div class="stats">
+<section class="hero">
+<div class="hero-content">
 
-        <div class="stat-card">
-            <h2>100+</h2>
-            <p>Short Tricks</p>
-        </div>
+<h1>
+Master <span>SSC CGL Quantitative Aptitude</span>
+</h1>
 
-        <div class="stat-card">
-            <h2>500+</h2>
-            <p>Practice Questions</p>
-        </div>
+<p>
+Learn Concepts, Short Tricks, PYQs, Practice Questions and
+Mock Tests designed specifically for SSC CGL Aspirants.
+</p>
 
-        <div class="stat-card">
-            <h2>50+</h2>
-            <p>Mock Tests</p>
-        </div>
+<a href="#topics" class="btn">
+Start Learning 🚀
+</a>
 
-        <div class="stat-card">
-            <h2>SSC CGL</h2>
-            <p>Exam Focused</p>
-        </div>
+</div>
+</section>
 
-    </div>
+<div class="container">
 
-    <div class="topics">
+<div class="stats">
 
-        <div class="card">
-            <div class="card-header percentages">
-                <div class="icon">📊</div>
-                <h2>Percentages_basics</h2>
-            </div>
+<div class="stat-card">
+<h2>100+</h2>
+<p>Short Tricks</p>
+</div>
 
-            <div class="card-body">
-                Learn percentage basics, conversion tricks,
-                exam shortcuts, PYQs and practice tests.
-                <br>
-                <a href="percentages_basics/">Start Learning</a>
-            </div>
-        </div>
+<div class="stat-card">
+<h2>500+</h2>
+<p>Practice Questions</p>
+</div>
 
-        <div class="card">
-            <div class="card-header profit">
-                <div class="icon">💰</div>
-                <h2>Increase & Decrease</h2>
-            </div>
+<div class="stat-card">
+<h2>50+</h2>
+<p>Mock Tests</p>
+</div>
 
-            <div class="card-body">
-                Basic → Reverse % → Successive → Area/Volume → Salary → Population → Price-Consumption → Marks 
-                <br>
-                <a href="Increase & Decrease/">Start Learning</a>
-            </div>
-        </div>
+<div class="stat-card">
+<h2>SSC CGL</h2>
+<p>Exam Focused</p>
+</div>
 
-        <div class="card">
-            <div class="card-header ratio">
-                <div class="icon">⚖️</div>
-                <h2>Ratio & Proportion</h2>
-            </div>
+</div>
 
-            <div class="card-body">
-                Understand ratios, proportions,
-                partnership and mixture concepts.
-                <br>
-                <a href="ratio/">Start Learning</a>
-            </div>
-        </div>
+<h2 class="section-title" id="features">
+Why Learn Here?
+</h2>
 
-    </div>
+<div class="features">
+
+<div class="feature">
+🎯 Concept Clarity
+</div>
+
+<div class="feature">
+📚 Previous Year Questions
+</div>
+
+<div class="feature">
+⚡ SSC Short Tricks
+</div>
+
+<div class="feature">
+📝 Practice Tests
+</div>
+
+</div>
+
+<h2 class="section-title" id="topics">
+Mathematics Topics
+</h2>
+
+<div class="topics">
+
+<!-- Percentages -->
+
+<div class="card">
+
+<div class="card-header percentages">
+<div class="icon">📊</div>
+<h2>Percentages</h2>
+</div>
+
+<div class="card-body">
+
+<ul>
+<li>✓ Percentage Basics</li>
+<li>✓ Fraction Conversion</li>
+<li>✓ Shortcut Tricks</li>
+<li>✓ SSC PYQs</li>
+</ul>
+
+<a href="percentages_basics/">
+Start Learning
+</a>
+
+</div>
+
+</div>
+
+<!-- Increase & Decrease -->
+
+<div class="card">
+
+<div class="card-header increase">
+<div class="icon">📈</div>
+<h2>Increase & Decrease</h2>
+</div>
+
+<div class="card-body">
+
+<ul>
+<li>✓ Basic Concepts</li>
+<li>✓ Reverse Percentage</li>
+<li>✓ Successive Changes</li>
+<li>✓ Area & Volume</li>
+</ul>
+
+<a href="Increase & Decrease/">
+Start Learning
+</a>
+
+</div>
+
+</div>
+
+<!-- Ratio -->
+
+<div class="card">
+
+<div class="card-header ratio">
+<div class="icon">⚖️</div>
+<h2>Ratio & Proportion</h2>
+</div>
+
+<div class="card-body">
+
+<ul>
+<li>✓ Ratio Basics</li>
+<li>✓ Proportion</li>
+<li>✓ Mixtures</li>
+<li>✓ Partnership</li>
+</ul>
+
+<a href="ratio/">
+Start Learning
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 <footer>
-    © 2026 SSC CGL Mastery Hub | Designed for Aspirants 🚀
+© 2026 SSC CGL Mastery Hub | Designed for SSC Aspirants 🚀
 </footer>
 
 </body>
 </html>
+```
